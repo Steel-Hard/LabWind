@@ -1,0 +1,101 @@
+BDD BACKLOG, LabWind 
+---
+
+## **Sprint 1 - Configuração e Protótipo Inicial (24/03 - 15/04)**
+### **User Stories:**
+
+📌 **US01 - Como usuário, quero me cadastrar e fazer login no sistema para acessar os dados meteorológicos.**
+📝 **Critérios de Aceitação:**
+✅ Deve haver uma tela de login e cadastro de usuários.
+✅ Deve haver um rate limiter como prevenção ao brute force.
+✅ Somente usuários cadastrados podem acessar o sistema.
+✅ O sistema deve validar credenciais com uso do WebToken.
+✅ O sistema deve armazenar as senhas criptografadas.
+
+📌 **US02 - Como usuário, quero visualizar uma página com informações sobre o projeto para entender seus objetivos.**
+📝 **Critérios de Aceitação:**
+✅ Deve haver uma página explicativa.
+✅ A página deve conter texto e imagens explicando o projeto.
+
+📌 **US03 - Como equipe de desenvolvimento, queremos um protótipo validado no Figma para guiar a implementação.**
+📝 **Critérios de Aceitação:**
+✅ O protótipo deve incluir todas as principais telas do sistema.
+✅ Deve ser validado pelo professor orientador antes da implementação.
+
+📌 **US04 - Como desenvolvedor, quero um repositório no GitHub para armazenar código e documentação.**
+📝 **Critérios de Aceitação:**
+✅ O repositório deve conter um README explicativo do projeto.
+✅ A estrutura do código deve estar organizada conforme as tecnologias definidas.
+
+📌 **US05 - Como equipe de desenvolvimento, queremos definir papéis na equipe para garantir organização e eficiência.**
+📝 **Critérios de Aceitação:**
+✅ Cada membro da equipe deve ter um papel claro (PO, SM, Dev Team).
+✅ Os papéis devem estar documentados no repositório.
+
+📌 **US06 - Como equipe, queremos uma ferramenta de controle de tarefas para gerenciar o desenvolvimento do projeto.**
+📝 **Critérios de Aceitação:**
+✅ O projeto deve ser gerenciado via Trello.
+✅ As tarefas devem estar bem definidas e organizadas em sprints.
+
+🔎 **Entrega da Sprint 1:** Protótipo validado, login funcional, estrutura inicial do sistema e repositório configurado.
+
+---
+
+## **Sprint 2 - Visualização de Dados e Gráficos (16/04 - 13/05)**
+### **User Stories:**
+
+📌 **US07 - Como usuário, quero visualizar os dados históricos das estações meteorológicas em uma tabela para análise.**
+📝 **Critérios de Aceitação:**
+✅ Deve haver uma tabela com os dados das estações meteorológicas.
+✅ O usuário deve poder selecionar qual estação deseja visualizar.
+
+📌 **US08 - Como usuário, quero visualizar gráficos interativos dos parâmetros de uma estação para entender melhor as variações.**
+📝 **Critérios de Aceitação:**
+✅ O gráfico deve ser interativo e atualizado dinamicamente.
+✅ O usuário deve poder escolher qual parâmetro visualizar.
+
+📌 **US09 - Como usuário, quero comparar gráficos de diferentes estações para analisar padrões climáticos.**
+📝 **Critérios de Aceitação:**
+✅ O sistema deve permitir selecionar múltiplas estações.
+✅ Os gráficos devem ser exibidos lado a lado ou sobrepostos para comparação.
+
+📌 **US10 - Como usuário, quero acessar a plataforma de qualquer dispositivo para visualizar os dados meteorológicos.**
+📝 **Critérios de Aceitação:**
+✅ A interface deve ser responsiva e funcionar bem em celulares, tablets e desktops.
+✅ Os gráficos e tabelas devem ajustar-se corretamente ao tamanho da tela.
+
+🔎 **Entrega da Sprint 2:** Funcionalidade de visualização de dados tabulares e gráficos interativos finalizados e responsivos.
+
+---
+
+## **Sprint 3 - Refinamento e Exportação de Dados (14/05 - 10/06)**
+### **User Stories:**
+
+📌 **US11 - Como usuário, quero baixar os dados meteorológicos em CSV para analisá-los offline.**
+📝 **Critérios de Aceitação:**
+✅ Deve haver um botão de download na página de visualização de dados.
+✅ O arquivo CSV deve conter os dados completos da estação selecionada.
+
+📌 **US12 - Como usuário, quero que os gráficos sejam fáceis de entender para que qualquer pessoa possa interpretar os dados.**
+📝 **Critérios de Aceitação:**
+✅ Os gráficos devem ter legenas e rótulos nos eixos.
+✅ O usuário deve poder passar o mouse sobre os pontos para ver detalhes.
+
+📌 **US13 - Como equipe, queremos testar o sistema para garantir que esteja funcionando corretamente antes da entrega final.**
+📝 **Critérios de Aceitação:**
+✅ Deve haver testes de usabilidade com usuários reais ou simulados.
+✅ Bugs críticos devem ser corrigidos antes da entrega final.
+
+📌 **US14 - Como equipe, queremos um repositório bem documentado para facilitar a manutenção e futuras melhorias.**
+📝 **Critérios de Aceitação:**
+✅ O código deve ter documentação explicando sua estrutura.
+✅ O README do GitHub deve conter instruções de instalação e uso.
+
+📌 **US15 - Como equipe, queremos preparar uma apresentação final para demonstrar o projeto de forma clara e objetiva.**
+📝 **Critérios de Aceitação:**
+✅ A apresentação deve incluir um vídeo demonstrativo das funcionalidades.
+✅ A equipe deve estar preparada para responder perguntas sobre o sistema.
+
+🔎 **Entrega da Sprint 3:** Sistema finalizado, testado, documentado e pronto para apresentação.
+
+---

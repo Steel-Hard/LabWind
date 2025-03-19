@@ -1,0 +1,50 @@
+REQUISITOS FUNCIONAIS
+
+RF01
+O Sistema deve consumir os dados gerados por três (03) determinadas estações meteorológicas.
+
+RF02
+O Sistema deve permitir a visualização gráfica dos dados.
+
+RF03
+O Sistema deve emitir alertas meteorológicos.
+
+RF04
+O Sistema deve permitir a visualização histórica dos dados, agrupados por estações, no formato tabular.
+
+RF05
+O Sistema deve permitir a visualização, em gráfico, os parâmetros de uma estação.
+
+RF06
+O Sistema deve permitir a visualização do mesmo parâmetro para diversas estações.
+
+RF07
+O Sistema deve permitir o Download de dados no formato CSV.
+
+RF08
+O Sistema deve ser restrito a usuários cadastrados.
+
+__________________________________________________________________________________________________________
+
+REQUISITOS NÃO-FUNCIOANIS
+
+RNF01
+Os gráficos devem ser interativos.
+
+RNF02
+Interface responsiva, layout consistente em diferentes dimensões de tela.
+
+RNF03
+Página descritiva do projeto.
+
+_________________________________________________________________________________________________________
+
+Precisamos para o Requisito:
+
+RF01: Dicionário e formato de dados de entrada.
+
+RF03: Limiares de atividade normal e crítica meteorológicos.
+
+RF05: Definição de "parâmetros" de uma estação.
+
+RNF03: Descrição do projeto.
