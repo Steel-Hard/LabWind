@@ -3,7 +3,7 @@ import userModel from "../models/user";
 import IUser from "../types/interfaces/IUser";
 import bcrypt from 'bcrypt';
 import jwt from "jsonwebtoken";
-
+import { jwtSecret } from "../middlewares/jwt";
 
 class UserController{
     public async createUser(req:Request,res:Response){
@@ -18,22 +18,26 @@ class UserController{
             throw new Error("Erro ao criar usuário");   
         }
     }
-    public async readUser(req:Request,res:Response){
+    public async readUser(req:Request,res:Response):Promise<any>{
         const {email,password} = req.body;
         try {
 
             const data = await userModel.findOne({email: email});
 
-            // if(data?.password) await bcrypt.compare(password,data.password)
-            //     .then((boolean) => {
-            //         boolean == true?  
-            //         :
-            //     })
-                
-            //     jwt.sign({}, ,{})
-            
-            
-            res.status(302).json({data});
+            if(!data || !data.password) return res.status(404).send("Usuário não encontrado");
+
+            await bcrypt.compare(password, data.password)
+                .then((status) => {
+                    if(status == false) return res.status(500).send("Erro senha incorreta");
+
+                    const token = jwt.sign(data.id,jwtSecret,{});
+    
+                    return res.status(200).json({message:"Sucesso no Login", token: token });
+                })
+                .catch((error) => {
+                    console.log(error)
+                    return res.status(401).send("Invalid password");
+                })
         } catch (error) {
             console.log(error);
             throw new Error("Erro ao buscar usuário");   
