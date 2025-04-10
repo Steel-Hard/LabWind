@@ -1,9 +1,10 @@
 import { Request,Response, NextFunction } from 'express';
 import jwt from 'jsonwebtoken';
+import dotenv from 'dotenv';
 
+dotenv.config();
 
-
-const jwtSecret = process.env.JWT_SECRET || 'default-secret';
+export const jwtSecret = process.env.JWT_SECRET || 'default-secret';
 
 export function authenticateToken(req: Request, res: Response, next: NextFunction) {
     const authHeader:any =  req.headers.authorization;

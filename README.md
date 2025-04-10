@@ -13,8 +13,8 @@ O .gitignore foi populado automaticamente para projetos desenvolvidos no vscode.
   <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML" />
   <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS" />
 </div>
-
-<span style="font-size:30px; margin-top:20px">Aplicação para visualização de dados meteorológicos e alertas, coletados pelo Projeto <a href="https://www.instagram.com/irn_unifei/p/C_Tbql6JugA/" target="_blank">LabWind no Instagram</a>. Desenvolvida com tecnologias modernas para garantir uma visualização eficiente e precisa dos dados em tempo real.</span>
+<br>
+<span style="font-size:30px; margin-top:20px">Aplicação desenvolvida para a visualização de dados meteorológicos coletados pelo Projeto <a href="https://www.instagram.com/irn_unifei/p/C_Tbql6JugA/" target="_blank">LabWind no Instagram</a>. Desenvolvida com tecnologias modernas e técnicas de controle de acesso para garantir uma visualização eficiente e precisa dos dados em tempo real e a privacidade dos dados.</span>
 
 ## Equipe de Desenvolvimento
 
