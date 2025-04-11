@@ -1,15 +1,14 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import Login from './pages/Login';
-import Dashboard from './pages/Dashboard';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Landing,Dashboard,Login } from './pages';
 
 function App() {
   return (
     <Router>
       <Routes>
+        <Route path='/'  element={<Landing/>}/>
         <Route path="/login" element={<Login />} />
         <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/" element={<Navigate to="/login" replace />} />
+        <Route path="*" element={<Landing/>} />
       </Routes>
     </Router>
   );
