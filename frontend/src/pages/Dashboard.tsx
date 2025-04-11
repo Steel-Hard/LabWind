@@ -2,13 +2,13 @@ import React from 'react';
 import styled from '@emotion/styled';
 
 const Container = styled.div`
-  display: flex;
+  display: grid;
+  grid-template-rows: 15% 85%;  /* Sidebar em cima e MainContent embaixo */
   min-height: 100vh;
   background-color: #0C2E3F;
 `;
 
 const Sidebar = styled.div`
-  width: 15%;
   background-color: #0a2532;
   padding: 20px;
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
@@ -21,9 +21,9 @@ const MainContent = styled.div`
 
 const GridContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-  padding: 20px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  padding: 40px;
 `;
 
 const Card = styled.div`
@@ -47,7 +47,7 @@ const Dashboard: React.FC = () => {
       </Sidebar>
       <MainContent>
         <GridContainer>
-          {Array.from({ length: 12 }).map((_, index) => (
+          {Array.from({ length: 6 }).map((_, index) => (
             <Card key={index}>
               {/* Conteúdo dos cards será adicionado posteriormente */}
             </Card>
