@@ -1,4 +1,4 @@
-import { Request, Response } from "express";
+import { Request, Response, NextFunction } from "express";
 import userModel from "../models/user";
 import IUser from "../types/interfaces/IUser";
 import bcrypt from "bcrypt";
@@ -53,37 +53,33 @@ class UserController {
     }
   }
 
-  public async updatePassword(req: Request, res: Response): Promise<any> {
+  public async updatePassword(
+    req: Request,
+    res: Response,
+    next: NextFunction
+  ): Promise<void> {
     const { email, currentPassword, newPassword } = req.body;
-
     try {
       const user = await userModel.findOne({ email: email });
       if (!user) {
-        return res.status(404).send("Usuário não encontrado");
+        res.status(404).send("Usuário não encontrado");
+        return;
       }
-
-      if (!user.password) {
-        return res.status(400).send("Senha atual não encontrada");
-      }
-      const isPasswordValid = await bcrypt.compare(
-        currentPassword,
-        user.password
-      );
+      const isPasswordValid = user.password
+        ? await bcrypt.compare(currentPassword, user.password)
+        : false;
       if (!isPasswordValid) {
-        return res.status(400).send("Senha atual incorreta");
+        res.status(400).send("Senha atual incorreta");
+        return;
       }
-
       const hashedNewPassword = await bcrypt.hash(newPassword, 8);
-
       await userModel.updateOne(
         { email: email },
         { $set: { password: hashedNewPassword } }
       );
-
-      return res.status(200).send("Senha atualizada com sucesso");
+      res.status(200).json({ message: "Senha atualizada com sucesso" });
     } catch (error) {
-      console.log(error);
-      return res.status(500).send("Erro ao atualizar a senha");
+      next(error);
     }
   }
 }
