@@ -1,22 +1,83 @@
 @import "tailwindcss";
 
+/* Estilização Global */
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-  @apply text-white
+  @apply w-full max-w-full mx-auto px-4 sm:px-8 md:px-12 lg:px-20 text-center text-white;
 }
 
 body {
-  min-height: 100vh;
-  @apply bg-primary 
+  min-height: 100px;
+  @apply bg-primary;
 }
-
 
 @theme static {
   --color-primary: #0C2E3F;
   --color-secondary: #1C4157;
 }
 
+/* Estilização do Dashboard */
+/* Dashboard Geral */
+.dashboard-container {
+  @apply bg-[#0C2E3F] min-h-screen;
+}
 
+/* Sidebar em cima - Desktop */
+/* Sidebar Desktop */
+.sidebar {
+  @apply w-full fixed top-0 left-0 bg-[#0a2532] p-2 shadow-md z-50 transition-all duration-300 overflow-hidden;
+  height: 50px;
+}
+
+/* Aumenta a altura quando o mouse está no grupo */
+.group:hover .sidebar {
+  height: 120px;
+}
+
+/* Links escondidos inicialmente */
+.sidebar-nav {
+  @apply hidden sm:flex justify-center gap-4 mt-2 opacity-0 transition-opacity duration-300;
+}
+
+/* Mostra links quando hover */
+.group:hover .sidebar-nav {
+  @apply opacity-100;
+}
+
+/* Mobile: Sidebar lateral esquerda */
+@media (max-width: 640px) {
+  .sidebar {
+    @apply w-16 h-full top-0 left-0 p-2 hover:w-48;
+    height: 100vh;
+  }
+
+  .sidebar-nav {
+    @apply flex flex-col mt-4 opacity-100;
+  }
+}
+
+.sidebar-title {
+  @apply text-white font-semibold text-lg hidden sm:block text-center mb-4;
+}
+
+.sidebar-link {
+  @apply text-white hover:text-gray-300 transition-colors;
+}
+
+/* MainContent */
+.main-content {
+  @apply w-[85%] mx-auto p-5 pt-[80px] sm:ml-16;
+}
+
+/* Grid */
+.grid-container {
+  @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 p-10;
+}
+
+/* Card */
+.card {
+  @apply bg-white rounded-lg p-5 min-h-[200px] shadow-md transition-transform duration-200 hover:-translate-y-[5px];
+}
+
+.card-text {
+  @apply text-gray-700 font-medium;
+}
