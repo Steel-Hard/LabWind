@@ -1,15 +1,22 @@
 @import "tailwindcss";
 
+<<<<<<< HEAD
 /* Estilização Global */
+=======
+
+>>>>>>> 08c2cfea0973a040a09a2a29bf407f030cbd7d51
 #root {
   @apply w-full max-w-full mx-auto px-4 sm:px-8 md:px-12 lg:px-20 text-center text-white;
 }
+<<<<<<< HEAD
 
 body {
   min-height: 100px;
   @apply bg-primary;
 }
 
+=======
+>>>>>>> 08c2cfea0973a040a09a2a29bf407f030cbd7d51
 @theme static {
   --color-primary: #0C2E3F;
   --color-secondary: #1C4157;
@@ -21,6 +28,7 @@ body {
   @apply bg-[#0C2E3F] min-h-screen;
 }
 
+<<<<<<< HEAD
 /* Sidebar em cima - Desktop */
 /* Sidebar Desktop */
 .sidebar {
@@ -81,3 +89,28 @@ body {
 .card-text {
   @apply text-gray-700 font-medium;
 }
+=======
+body {
+  min-height: 100vh;
+  @apply bg-primary;
+}
+
+.app-container {
+  @apply h-screen w-screen overflow-y-scroll scroll-snap-y-mandatory scroll-smooth;
+}
+
+
+.section {
+  @apply h-screen w-screen flex items-center justify-center scroll-snap-start text-white text-5xl font-bold;
+}
+
+.section-one {
+  @apply bg-gray-900;
+}
+
+.section-two {
+  @apply bg-indigo-600;
+}
+
+
+>>>>>>> 08c2cfea0973a040a09a2a29bf407f030cbd7d51
