@@ -1,5 +1,6 @@
 @import "tailwindcss";
 
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
@@ -7,16 +8,32 @@
   text-align: center;
   @apply text-white
 }
-
-body {
-  min-height: 100vh;
-  @apply bg-primary 
-}
-
-
 @theme static {
   --color-primary: #0C2E3F;
   --color-secondary: #1C4157;
+}
+
+
+body {
+  min-height: 100vh;
+  @apply bg-primary;
+}
+
+.app-container {
+  @apply h-screen w-screen overflow-y-scroll scroll-snap-y-mandatory scroll-smooth;
+}
+
+
+.section {
+  @apply h-screen w-screen flex items-center justify-center scroll-snap-start text-white text-5xl font-bold;
+}
+
+.section-one {
+  @apply bg-gray-900;
+}
+
+.section-two {
+  @apply bg-indigo-600;
 }
 
 
