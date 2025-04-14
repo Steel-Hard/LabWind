@@ -1,57 +1,42 @@
 @import "tailwindcss";
 
-<<<<<<< HEAD
 /* Estilização Global */
-=======
-
->>>>>>> 08c2cfea0973a040a09a2a29bf407f030cbd7d51
 #root {
   @apply w-full max-w-full mx-auto px-4 sm:px-8 md:px-12 lg:px-20 text-center text-white;
 }
-<<<<<<< HEAD
 
 body {
   min-height: 100px;
-  @apply bg-primary;
+  background-color: var(--color-primary);
+  color: white;
 }
 
-=======
->>>>>>> 08c2cfea0973a040a09a2a29bf407f030cbd7d51
-@theme static {
-  --color-primary: #0C2E3F;
-  --color-secondary: #1C4157;
-}
-
-/* Estilização do Dashboard */
 /* Dashboard Geral */
 .dashboard-container {
-  @apply bg-[#0C2E3F] min-h-screen;
+  background-color: var(--color-primary);
+  min-height: 100vh;
 }
 
-<<<<<<< HEAD
-/* Sidebar em cima - Desktop */
-/* Sidebar Desktop */
+/* Sidebar - Desktop */
 .sidebar {
-  @apply w-full fixed top-0 left-0 bg-[#0a2532] p-2 shadow-md z-50 transition-all duration-300 overflow-hidden;
+  background-color: var(--color-secondary);
+  @apply w-full fixed top-0 left-0 p-2 shadow-md z-50 transition-all duration-300 overflow-hidden;
   height: 50px;
 }
-
-/* Aumenta a altura quando o mouse está no grupo */
+/* Sidebar - Hover Desktop */
 .group:hover .sidebar {
   height: 120px;
 }
 
-/* Links escondidos inicialmente */
 .sidebar-nav {
   @apply hidden sm:flex justify-center gap-4 mt-2 opacity-0 transition-opacity duration-300;
 }
 
-/* Mostra links quando hover */
 .group:hover .sidebar-nav {
   @apply opacity-100;
 }
 
-/* Mobile: Sidebar lateral esquerda */
+/* Sidebar - Mobile */
 @media (max-width: 640px) {
   .sidebar {
     @apply w-16 h-full top-0 left-0 p-2 hover:w-48;
@@ -63,6 +48,7 @@ body {
   }
 }
 
+/* Títulos e Links Sidebar */
 .sidebar-title {
   @apply text-white font-semibold text-lg hidden sm:block text-center mb-4;
 }
@@ -71,17 +57,16 @@ body {
   @apply text-white hover:text-gray-300 transition-colors;
 }
 
-/* MainContent */
+/* Conteúdo Principal */
 .main-content {
   @apply w-[85%] mx-auto p-5 pt-[80px] sm:ml-16;
 }
 
-/* Grid */
+/* Grid de Cards */
 .grid-container {
   @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 p-10;
 }
 
-/* Card */
 .card {
   @apply bg-white rounded-lg p-5 min-h-[200px] shadow-md transition-transform duration-200 hover:-translate-y-[5px];
 }
@@ -89,28 +74,3 @@ body {
 .card-text {
   @apply text-gray-700 font-medium;
 }
-=======
-body {
-  min-height: 100vh;
-  @apply bg-primary;
-}
-
-.app-container {
-  @apply h-screen w-screen overflow-y-scroll scroll-snap-y-mandatory scroll-smooth;
-}
-
-
-.section {
-  @apply h-screen w-screen flex items-center justify-center scroll-snap-start text-white text-5xl font-bold;
-}
-
-.section-one {
-  @apply bg-gray-900;
-}
-
-.section-two {
-  @apply bg-indigo-600;
-}
-
-
->>>>>>> 08c2cfea0973a040a09a2a29bf407f030cbd7d51
