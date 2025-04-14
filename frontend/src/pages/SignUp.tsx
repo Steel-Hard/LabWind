@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import styled from '@emotion/styled';
 import { useNavigate } from 'react-router-dom';
+import UserService from '../services/UserService';
+import { ThemeConsumer } from 'styled-components';
 
 const Container = styled.div`
   display: flex;
@@ -12,7 +14,7 @@ const Container = styled.div`
   padding: 20px;
 `;
 
-const LoginBox = styled.div`
+const SignUpBox = styled.div`
   background-color: white;
   padding: 2rem;
   border-radius: 8px;
@@ -41,7 +43,7 @@ const Input = styled.input`
   border-radius: 4px;
   font-size: 1rem;
   width: 100%;
-  color : black;
+  color: black;
   &:focus {
     outline: none;
     border-color: #5EBFBF;
@@ -62,25 +64,41 @@ const Button = styled.button`
   }
 `;
 
-const Login: React.FC = () => {
+const SignUp: React.FC = () => {
+  const [nome, setNome] = useState('');
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
   const navigate = useNavigate();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Por enquanto, vamos apenas redirecionar para o dashboard
-    // A lógica de autenticação será implementada posteriormente
-    navigate('/dashboard');
+
+    // Aqui futuramente vai a lógica de cadastro na API
+    console.log({ nome, email, senha });
+    
+    UserService.signup (nome,email,senha).then((res)=>{
+    console.log (res)
+
+    const token =  
+    UserService.signin(email,senha)
+    console.log(token)
+    })
+
   };
 
   return (
     <Container>
-      <LoginBox>
+      <SignUpBox>
         <Logo>
           <img src="/logo.png" alt="Logo" />
         </Logo>
         <Form onSubmit={handleSubmit}>
+          <Input
+            type="text"
+            placeholder="NOME"
+            value={nome}
+            onChange={(e) => setNome(e.target.value)}
+          />
           <Input
             type="email"
             placeholder="E-MAIL"
@@ -93,11 +111,11 @@ const Login: React.FC = () => {
             value={senha}
             onChange={(e) => setSenha(e.target.value)}
           />
-          <Button type="submit">Login</Button>
+          <Button type="submit">Cadastrar</Button>
         </Form>
-      </LoginBox>
+      </SignUpBox>
     </Container>
   );
 };
 
-export default Login; 
+export default SignUp;
