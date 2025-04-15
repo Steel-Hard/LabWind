@@ -1,10 +1,20 @@
+import { Link } from "react-router-dom";
 import SwitchTheme from "../SwitchTheme";
 function Header(){
     return(
         <>
-        <div className="bg-secondary w-full h-7 m-0">
+        <div className="sidebar">
             <SwitchTheme/>
-            SADASD
+            <div className="flex align-middle justify-center gap-3 text-4xl">
+
+            <Link to={"/login"}>
+                Login
+            </Link>
+            |
+            <Link to={"/cadastro"}>
+                Cadastro
+            </Link>
+            </div>
         </div>
         </>
     )
