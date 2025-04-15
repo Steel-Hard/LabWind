@@ -2,6 +2,7 @@ import express from "express";
 import dotenv from "dotenv";
 import  mongo  from "mongoose";
 import routes from "./routes";
+import cors from "cors"
 
 dotenv.config()
 
@@ -13,6 +14,8 @@ mongo.connect(MONGODB_URI)
     .catch((error) => {throw Error("Erro ao conectar ao mongodb: " + error)})
 
 const app = express();
+
+app.use(cors());
 
 app.use(express.json());
 

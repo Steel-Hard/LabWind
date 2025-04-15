@@ -1,120 +1,60 @@
 import React, { useState } from 'react';
-import styled from '@emotion/styled';
-import { useNavigate } from 'react-router-dom';
 import UserService from '../services/UserService';
-import { ThemeConsumer } from 'styled-components';
 
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-  background-color: #5EBFBF;
-  padding: 20px;
-`;
-
-const SignUpBox = styled.div`
-  background-color: white;
-  padding: 2rem;
-  border-radius: 8px;
-  width: 100%;
-  max-width: 400px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-`;
-
-const Logo = styled.div`
-  text-align: center;
-  margin-bottom: 2rem;
-  img {
-    height: 40px;
-  }
-`;
-
-const Form = styled.form`
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-`;
-
-const Input = styled.input`
-  padding: 0.75rem;
-  border: 1px solid #e2e8f0;
-  border-radius: 4px;
-  font-size: 1rem;
-  width: 100%;
-  color: black;
-  &:focus {
-    outline: none;
-    border-color: #5EBFBF;
-  }
-`;
-
-const Button = styled.button`
-  background-color: #5EBFBF;
-  color: white;
-  padding: 0.75rem;
-  border: none;
-  border-radius: 4px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background-color 0.2s;
-  &:hover {
-    background-color: #4ea8a8;
-  }
-`;
 
 const SignUp: React.FC = () => {
-  const [nome, setNome] = useState('');
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
-  const navigate = useNavigate();
+  const [name, setName] = useState('');
 
-  const handleSubmit = (e: React.FormEvent) => {
+
+  const handleSubmit =  async (e: React.FormEvent) => {
     e.preventDefault();
+    try {
+      const res = await UserService.signup(name,email,senha);
+      console.log(res)
 
-    // Aqui futuramente vai a lógica de cadastro na API
-    console.log({ nome, email, senha });
-    
-    UserService.signup (nome,email,senha).then((res)=>{
-    console.log (res)
-
-    const token =  
-    UserService.signin(email,senha)
-    console.log(token)
-    })
-
+    } catch (error) {
+      console.log(error);
+      
+    }
+ 
   };
 
   return (
-    <Container>
-      <SignUpBox>
-        <Logo>
+    <div className="container">
+      <div className="login-box">
+        <div className="logo">
           <img src="/logo.png" alt="Logo" />
-        </Logo>
-        <Form onSubmit={handleSubmit}>
-          <Input
-            type="text"
+        </div>
+        <form onSubmit={handleSubmit} className="form">
+        <input
+            type="name"
             placeholder="NOME"
-            value={nome}
-            onChange={(e) => setNome(e.target.value)}
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            className="input"
           />
-          <Input
+          <input
             type="email"
             placeholder="E-MAIL"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            className="input"
           />
-          <Input
+          <input
             type="password"
             placeholder="SENHA"
             value={senha}
             onChange={(e) => setSenha(e.target.value)}
+            className="input"
           />
-          <Button type="submit">Cadastrar</Button>
-        </Form>
-      </SignUpBox>
-    </Container>
+          <button type="submit" className="button">
+            Cadastro
+          </button>
+        </form>
+      </div>
+    </div>
   );
 };
 
