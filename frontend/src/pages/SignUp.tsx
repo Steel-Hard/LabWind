@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
+import styled from '@emotion/styled';
 import { useNavigate } from 'react-router-dom';
+import UserService from '../services/UserService';
+import { ThemeConsumer } from 'styled-components';
 
-<<<<<<< HEAD
-=======
 const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -13,7 +14,7 @@ const Container = styled.div`
   padding: 20px;
 `;
 
-const LoginBox = styled.div`
+const SignUpBox = styled.div`
   background-color: white;
   padding: 2rem;
   border-radius: 8px;
@@ -42,7 +43,7 @@ const Input = styled.input`
   border-radius: 4px;
   font-size: 1rem;
   width: 100%;
-  color : black;
+  color: black;
   &:focus {
     outline: none;
     border-color: #5EBFBF;
@@ -62,48 +63,59 @@ const Button = styled.button`
     background-color: #4ea8a8;
   }
 `;
->>>>>>> 6c7a05e509d4e38abd5c87419c2c7fa1e3f6028a
 
-const Login: React.FC = () => {
+const SignUp: React.FC = () => {
+  const [nome, setNome] = useState('');
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
   const navigate = useNavigate();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Por enquanto, vamos apenas redirecionar para o dashboard
-    // A lógica de autenticação será implementada posteriormente
-    navigate('/dashboard');
+
+    // Aqui futuramente vai a lógica de cadastro na API
+    console.log({ nome, email, senha });
+    
+    UserService.signup (nome,email,senha).then((res)=>{
+    console.log (res)
+
+    const token =  
+    UserService.signin(email,senha)
+    console.log(token)
+    })
+
   };
 
   return (
-    <div className="container">
-      <div className="login-box">
-        <div className="logo">
+    <Container>
+      <SignUpBox>
+        <Logo>
           <img src="/logo.png" alt="Logo" />
-        </div>
-        <form onSubmit={handleSubmit} className="form">
-          <input
+        </Logo>
+        <Form onSubmit={handleSubmit}>
+          <Input
+            type="text"
+            placeholder="NOME"
+            value={nome}
+            onChange={(e) => setNome(e.target.value)}
+          />
+          <Input
             type="email"
             placeholder="E-MAIL"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="input"
           />
-          <input
+          <Input
             type="password"
             placeholder="SENHA"
             value={senha}
             onChange={(e) => setSenha(e.target.value)}
-            className="input"
           />
-          <button type="submit" className="button">
-            Login
-          </button>
-        </form>
-      </div>
-    </div>
+          <Button type="submit">Cadastrar</Button>
+        </Form>
+      </SignUpBox>
+    </Container>
   );
 };
 
-export default Login;
+export default SignUp;

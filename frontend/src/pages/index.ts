@@ -1,9 +1,11 @@
 import Dashboard from "./Dashboard";
 import Landing from "./Landing";
 import Login from "./Login";
+import SignUp from "./SignUp";
 
 export {
     Dashboard,
     Landing,
-    Login
+    Login,
+    SignUp
 }
