@@ -7,20 +7,17 @@ function Landing() {
         <Header />
       
         <div className="h-screen w-full">
+          <img className="w-full h-full z-0 invisible md:visible sm:invisible" src="./bg-rg.svg"/>
+          <img className="z-40 rounded-2xl  absolute w-120 h-120 top-10 md:left-1/6 sm:left-2/4" src="./furnas.png"></img>
+          <p className=" text-black absolute text-justify  h-120 w-65 top-45 right-1/6">
+          Solução tecnológica para monitoramento climático no Lago de Furnas, oferecendo gráficos interativos e alertas em tempo real, visando reduzir riscos para navegantes e comunidades locais.
+          </p>
 
-          <h1 className="title relative top-2/4 z-40">LabWind</h1>
-          <div className="clouds-container flex overflow-hidden relative w-full h-48">
-            <img src="cloud_1.png" className="cloud top-6 right-0 " alt="Cloud 1"/>
-            <img src="cloud_2.png" className="cloud  top-10 left-2 " alt="Cloud 2"/>
-            <img src="cloud_3.png" className="cloud  bottom-1.5 left-4" alt="Cloud 3"/>
-            <img src="cloud_4.png" className="cloud  bottom-8 right-0" alt="Cloud 4"/>
-            <img src="cloud_5.png" className="cloud right-0 bottom-5 left-10" alt="Cloud 5"/>
-            <img src="cloud_6.png" className="cloud top-20 right-0" alt="Cloud 6"/>
-          </div>
-        </div>
-        <div className="h-screen ">
+          <button onClick={() => { window.location.href = "/cadastro"}} className="button absolute w-60 h-20 bottom-30 right-1/6">
+            Cadastrar
+          </button>
 
-        </div>        
+         </div>       
         </div>
 
 

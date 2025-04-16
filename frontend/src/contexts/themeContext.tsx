@@ -20,7 +20,7 @@ function ThemeProvider({ children }: any) {
 
         if (theme === "dark") {
             document.body.setAttribute("data-theme", "dark");
-            document.documentElement.style.setProperty("--color-primary", "#0C2E3F");
+            document.documentElement.style.setProperty("--color-primary", "#10243A");
             document.documentElement.style.setProperty("--color-secondary", "#1C4157");
         } else {
             document.body.setAttribute("data-theme", "light");
