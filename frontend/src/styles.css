@@ -27,7 +27,7 @@ body {
 .roboto-medium {
   font-family: "Roboto", sans-serif;
   font-optical-sizing: auto;
-  font-weight: medium;
+  font-weight: bolder;
   font-style: normal;
   font-variation-settings: "wdth" 100;
 }
@@ -126,9 +126,15 @@ a {
   @apply text-white p-3 rounded-md text-lg cursor-pointer transition-colors duration-200;
   background-color: var(--color-primary);
 }
+
+.button-cadastrar {
+  @apply w-[35%] h-20 bottom-30 xl:right-1/8 bg-blue-700 hover:bg-blue-950 text-white p-3 rounded-md text-6xl cursor-pointer transition-colors duration-200;
+}
+
 .button:hover {
   background-color: var(--color-secondary);
 }
+
 /*Anime*/
 .hex {
   display: inline-block;

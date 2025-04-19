@@ -5,16 +5,38 @@ function Landing() {
       <div className="flex-1">
         <Header />
 
-        <div className="h-screen w-full">
+        <div className="relative hidden xl:block h-screen w-full">
           <img
-            className="w-full h-full z-0 invisible md:visible sm:invisible"
-            src="./bg-rg.svg"
+            className="w-full h-full z-0 invisible xl:visible"
+            src="./background.svg"
           />
+
           <img
-            className="z-40 rounded-2xl  absolute w-120 h-120 top-10 md:left-1/6 sm:left-2/4"
+            className="z-40 rounded-2xl absolute top-20 xl:size-165"
             src="./furnas.png"
-          ></img>
-          <p className="roboto-medium sm:text-white md:text-black lg:text-black absolute text-justify text-4xl h-[300px] w-[500px] top-45 right-1/6">
+          />
+
+          <div>
+            <p className="roboto-medium absolute text-center text-4xl h-1/3 w-[35%] top-60 right-1/8 text-black">
+              Solução tecnológica para monitoramento climático no Lago de
+              Furnas, oferecendo gráficos interativos e alertas em tempo real,
+              visando reduzir riscos para navegantes e comunidades locais.
+            </p>
+
+            <button
+              onClick={() => {
+                window.location.href = "/cadastro";
+              }}
+              className="jomhuria-regular absolute button-cadastrar"
+            >
+              Cadastrar
+            </button>
+          </div>
+          <img className="absolute inset-x-0 xl:bottom-0 ml-10" src="/SH.png" />
+        </div>
+
+        <div className="flex flex-col items-center text-center px-6 py-10 gap-6 xl:hidden">
+          <p className="roboto-medium lg:text-3xl text-2xl h-1/3 w-[70%] mt-20">
             Solução tecnológica para monitoramento climático no Lago de Furnas,
             oferecendo gráficos interativos e alertas em tempo real, visando
             reduzir riscos para navegantes e comunidades locais.
@@ -24,10 +46,18 @@ function Landing() {
             onClick={() => {
               window.location.href = "/cadastro";
             }}
-            className="button absolute w-60 h-20 bottom-30 right-1/6"
+            className="jomhuria-regular button-cadastrar shadow"
           >
             Cadastrar
           </button>
+
+          <img
+            className="rounded-2xl w-[50%] h-auto"
+            src="./furnas.png"
+            alt="Furnas"
+          />
+
+          <img src="/SH.png" alt="Logo" />
         </div>
       </div>
     </>
