@@ -9,7 +9,7 @@ dotenv.config()
 const PORT = process.env.PORT || 3000;
 const MONGODB_URI= "mongodb://localhost:27017/steelhard"
 
-mongo.connect(MONGODB_URI)
+mongo.connect(MONGODB_URI, { serverSelectionTimeoutMS: 30000 })
     .then(() => console.log("mongodb conectado"))
     .catch((error) => {throw Error("Erro ao conectar ao mongodb: " + error)})
 
