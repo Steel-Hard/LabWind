@@ -25,11 +25,11 @@ function Landing() {
 
             <button
               onClick={() => {
-                window.location.href = "/cadastro";
+                window.location.href = "/dashboard";
               }}
               className="jomhuria-regular absolute button-cadastrar"
             >
-              Cadastrar
+              Acessar
             </button>
           </div>
           <img className="absolute inset-x-0 xl:bottom-0 ml-10" src="/SH.png" />
@@ -44,11 +44,11 @@ function Landing() {
 
           <button
             onClick={() => {
-              window.location.href = "/cadastro";
+              window.location.href = "/dashboard";
             }}
             className="jomhuria-regular button-cadastrar shadow"
           >
-            Cadastrar
+            Acessar
           </button>
 
           <img
