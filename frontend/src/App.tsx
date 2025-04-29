@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { Landing, Dashboard, Login,SignUp } from "./pages";
+import { Landing, Dashboard, Login,SignUp,Tabelas } from "./pages";
 import { ThemeProvider } from "./contexts/themeContext";
 function App() {
   return (
@@ -9,6 +9,7 @@ function App() {
           <Route path="/" element={<Landing />} />
           <Route path="/login" element={<Login />} />
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/tabelas" element={<Tabelas/>}/>
           <Route path="/cadastro" element={<SignUp/>} />
           <Route path="*" element={<Landing />} />
         </Routes>

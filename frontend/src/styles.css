@@ -135,18 +135,9 @@ a {
   background-color: var(--color-secondary);
 }
 
-/*Anime*/
-.hex {
-  display: inline-block;
-  width: 35%;
-  position: absolute;
+th{
+  @apply border border-gray-300
 }
-
-.hex::before {
-  content: "";
-  display: block;
-  background: currentColor;
-  padding-top: 86.6%;
-  /* 100%*cos(30) */
-  clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+td{
+  @apply px-6 py-4 border border-gray-300;
 }

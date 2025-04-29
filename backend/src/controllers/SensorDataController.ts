@@ -2,6 +2,7 @@
 import { Request, Response } from 'express';
 import  SensorDataModel  from   '../models/sensor';
 import { ISensorData } from '../types/interfaces/ISensorData';
+import { mongo } from 'mongoose';
 
 class SensorDataController {
     
@@ -29,6 +30,20 @@ async create(req: Request, res: Response): Promise<void> {
     try {
       const { id } = req.params;
       const data = await SensorDataModel.findById(id);
+      if (data) {
+        res.status(200).json(data);
+      } else {
+        res.status(404).json({ message: 'Dados não encontrados' });
+      }
+    } catch (error) {
+      res.status(500).json({ message: 'Erro ao buscar dado', error });
+    }
+  }
+
+  async getByData(req:Request,res:Response):Promise<void> {
+    try{
+      const {date} = req.params;
+      const data = await SensorDataModel.find({ date: date});
       if (data) {
         res.status(200).json(data);
       } else {
