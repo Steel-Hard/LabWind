@@ -1,7 +1,7 @@
 <h1 align="center">LabWind</h1>
+<span style="font-size:30px; margin-top:20px">Aplicação desenvolvida para a visualização de dados meteorológicos coletados pelo <a href="https://www.instagram.com/irn_unifei/p/C_Tbql6JugA/" target="_blank">Projeto LabWind</a>. 
 
-**Devs, atenção:**  
-O .gitignore foi populado automaticamente para projetos desenvolvidos no vscode. Caso tentem commitar um arquivo muito essencial e ele não seja aceito no repositório, confiram o .gitignore e alterem com sabedoria. Caso tenhamos problemas, alteraremos.
+  Desenvolvida com tecnologias modernas e técnicas de controle de acesso para garantir uma visualização eficiente e precisa dos dados em tempo real e a privacidade dos dados.</span>
 
 ## Tecnologias Utilizadas
 
@@ -14,11 +14,10 @@ O .gitignore foi populado automaticamente para projetos desenvolvidos no vscode.
   <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS" />
 </div>
 <br>
-<span style="font-size:30px; margin-top:20px">Aplicação desenvolvida para a visualização de dados meteorológicos coletados pelo Projeto <a href="https://www.instagram.com/irn_unifei/p/C_Tbql6JugA/" target="_blank">LabWind no Instagram</a>. Desenvolvida com tecnologias modernas e técnicas de controle de acesso para garantir uma visualização eficiente e precisa dos dados em tempo real e a privacidade dos dados.</span>
 
 ## Equipe de Desenvolvimento
 
-- **Breno de Luca Boff** - [P.O.](https://github.com/brn-lc)
-- **Vitor Francisco de Azevedo Zonzini** - [S.M.](https://github.com/frevisto/frevisto)
-- **Claudio Santos** - [DevOps](https://github.com/claudsaints/claudsaints)
+- **Breno de Luca** - [Product Owner](https://github.com/brn-lc)
+- **Vitor Francisco** - [Scrum Master](https://github.com/frevisto/)
+- **Claudio Santos** - [DevOps](https://github.com/claudsaints/)
 - **Nicolas Aquino** - [DevOps](https://github.com/nickaqui)
