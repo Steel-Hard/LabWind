@@ -1,24 +1,23 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Login: React.FC = () => {
-  const [email, setEmail] = useState('');
-  const [senha, setSenha] = useState('');
+  const [email, setEmail] = useState("");
+  const [senha, setSenha] = useState("");
   const navigate = useNavigate();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Por enquanto, vamos apenas redirecionar para o dashboard
     // A lógica de autenticação será implementada posteriormente
-    navigate('/dashboard');
+    navigate("/dashboard");
   };
 
   return (
     <div className="container">
       <div className="login-box">
         <div className="logo">
-          <img src="/logo.png" alt="Logo" />
+          <img src="/SHlogo-preto.png" alt="Logo" />
         </div>
         <form onSubmit={handleSubmit} className="form">
           <input
@@ -36,7 +35,7 @@ const Login: React.FC = () => {
             className="input"
           />
           <button type="submit" className="button">
-            Login
+            Entrar
           </button>
         </form>
       </div>

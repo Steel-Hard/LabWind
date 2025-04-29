@@ -94,7 +94,7 @@ a {
 
 /* Container */
 .container {
-  @apply flex flex-col items-center justify-center min-h-screen p-5;
+  @apply flex flex-col items-center justify-center min-h-screen ml-auto mr-auto;
 }
 
 /* Login Box */
@@ -108,7 +108,7 @@ a {
 }
 
 .logo img {
-  @apply h-10 mx-auto;
+  @apply size-15 mx-auto;
 }
 
 /* Form */

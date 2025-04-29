@@ -1,34 +1,29 @@
-import React, { useState } from 'react';
-import UserService from '../services/UserService';
-
+import React, { useState } from "react";
+import UserService from "../services/UserService";
 
 const SignUp: React.FC = () => {
-  const [email, setEmail] = useState('');
-  const [senha, setSenha] = useState('');
-  const [name, setName] = useState('');
+  const [email, setEmail] = useState("");
+  const [senha, setSenha] = useState("");
+  const [name, setName] = useState("");
 
-
-  const handleSubmit =  async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const res = await UserService.signup(name,email,senha);
-      console.log(res)
-
+      const res = await UserService.signup(name, email, senha);
+      console.log(res);
     } catch (error) {
       console.log(error);
-      
     }
- 
   };
 
   return (
     <div className="container">
       <div className="login-box">
         <div className="logo">
-          <img src="/logo.png" alt="Logo" />
+          <img src="/SHlogo-preto.png" alt="Logo" />
         </div>
         <form onSubmit={handleSubmit} className="form">
-        <input
+          <input
             type="name"
             placeholder="NOME"
             value={name}
@@ -50,7 +45,7 @@ const SignUp: React.FC = () => {
             className="input"
           />
           <button type="submit" className="button">
-            Cadastro
+            Cadastrar
           </button>
         </form>
       </div>
