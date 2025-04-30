@@ -1,9 +1,17 @@
+import { Link } from "react-router-dom";
 import { Header } from "../components";
 function Landing() {
   return (
     <>
       <div className="flex-1">
-        <Header />
+        <Header>
+          <h1 className="jomhuria-regular text-8xl text-shadow-lg/100 ml-10">
+            LabWind
+          </h1>
+          <div className="block align-bottom text-white xl:text-black gap-3 text-4xl mt-3 mr-10">
+            <Link to={"/login"}>Login &raquo;</Link>
+          </div>
+        </Header>
 
         <div className="relative hidden xl:block h-screen w-full">
           <img

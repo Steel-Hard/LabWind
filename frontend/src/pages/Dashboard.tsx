@@ -1,24 +1,18 @@
 import React from 'react';
 import '../styles.css'
+import { Header,Nav } from '../components';
 
 const Dashboard: React.FC = () => {
   return (
-    <div className="dashboard-container">
-      {/* Agrupando para o hover funcionar */}
-      <div className="group">
-        {/* Sidebar Responsiva */}
-        <div className="sidebar">
-          <h2 className="sidebar-title">Menu</h2>
-          <nav className="sidebar-nav">
-            <a href="#" className="sidebar-link">Link 1</a>
-            <a href="#" className="sidebar-link">Link 2</a>
-            <a href="#" className="sidebar-link">Link 3</a>
-            <a href="#" className="sidebar-link">Link 4</a>
-          </nav>
-        </div>
-      </div>
 
-      {/* MainContent */}
+    <>
+    
+    
+    <Header>
+      <Nav/>
+    </Header>
+    
+    <div className="dashboard-container">
       <div className="main-content">
         <div className="grid-container">
           {Array.from({ length: 6 }).map((_, index) => (
@@ -29,6 +23,7 @@ const Dashboard: React.FC = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

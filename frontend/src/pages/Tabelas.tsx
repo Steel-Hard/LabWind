@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { ISensorData } from "../types";
 import SensorDataService from "../services/SensorDataService";
 import converteDate from "../utils/data";
+import { Header, Nav } from "../components";
 
 export default function Tabelas() {
   const [data, setData] = useState<ISensorData[]>([]);
@@ -17,7 +18,10 @@ export default function Tabelas() {
 
   return (
     <>
-      <div>
+      <Header>
+        <Nav/>
+      </Header>
+      <div className="mt-10">
         <h2>Dados do Sensor</h2>
         <table className="w-full  text-sm text-center rtl:text-center text-gray-500 dark:text-gray-400 border-collapse border border-gray-400">
           <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">

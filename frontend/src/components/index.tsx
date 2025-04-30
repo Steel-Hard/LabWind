@@ -1,7 +1,9 @@
 import Header from "./Header";
-import SwitchTheme from "./SwitchTheme";
+import Nav from "./Nav/Nav";
+
 
 export {
     Header,
-    SwitchTheme
+    Nav
+  
 }
