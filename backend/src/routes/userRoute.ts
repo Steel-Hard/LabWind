@@ -21,7 +21,7 @@ routes.post("/signup",
   userController.createUser
 );
 
-routes.post(
+routes.put(
   "/updatePassword",
   limiter,
   authenticateToken,

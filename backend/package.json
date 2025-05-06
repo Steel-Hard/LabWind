@@ -5,7 +5,8 @@
   "scripts": {
     "start": "ts-node ./src/index.ts",
     "dev": "ts-node-dev ./src/index.ts",
-    "create": "npx ts-node ./src/config/index.ts"
+    "create": "npx ts-node ./src/config/index.ts",
+    "test-db": "npx ts-node ./src/services/labwind/index.ts"
   },
   "keywords": [],
   "author": "",
@@ -24,7 +25,8 @@
     "express-rate-limit": "^7.5.0",
     "fs": "^0.0.1-security",
     "jsonwebtoken": "^9.0.2",
-    "mongoose": "^8.13.0"
+    "mongoose": "^8.13.0",
+    "mysql2": "^3.14.1"
   },
   "devDependencies": {
     "@types/express": "^5.0.1",
