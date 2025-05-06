@@ -38,7 +38,7 @@ body {
 }
 
 .sidebar-nav {
-  @apply flex-1 align-middle justify-around hidden xl:flex  sm:hidden text-center;
+  @apply flex-1 align-middle justify-around hidden xl:flex  sm:hidden text-center ;
 }
 
 
