@@ -12,7 +12,7 @@ const Dashboard: React.FC = () => {
       <Nav/>
     </Header>
     
-    <div className="dashboard-container">
+
       <div className="main-content">
         <div className="grid-container">
           {Array.from({ length: 6 }).map((_, index) => (
@@ -22,7 +22,7 @@ const Dashboard: React.FC = () => {
           ))}
         </div>
       </div>
-    </div>
+
     </>
   );
 };

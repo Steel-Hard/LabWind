@@ -7,8 +7,8 @@ export default function Graph(){
             <Nav/>
             </Header>  
         
-        <div>
-            Hello
+        <div className="mt-20">
+            
         </div>
         </>
     )

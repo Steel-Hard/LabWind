@@ -4,6 +4,5 @@ import Nav from "./Nav/Nav";
 
 export {
     Header,
-    Nav
-  
+    Nav 
 }
