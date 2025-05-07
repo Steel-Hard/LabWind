@@ -30,7 +30,7 @@ export default function Nav() {
           {navLinks.map(({ to, label }) => (
             <Link
               key={to}
-              className="sidebar-link mb-2 text-black"
+              className="sidebar-link mb-2 s"
               to={to}
               onClick={toggleTopNav}
             >
@@ -47,7 +47,7 @@ export default function Nav() {
             key={to}
             to={to}
             className={`sidebar-link px-4 py-2 rounded ${
-              isActive(to) ? "shadow-lg bg-blue-500" : ""
+              isActive(to) ? "shadow-lg bg-[var(--color-secondary)]" : ""
             }`}
           >
             {label}
