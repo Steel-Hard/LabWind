@@ -18,7 +18,6 @@ export default function Nav() {
 
   return (
     <>
-      {/* Menu Superior (Overlay) */}
       {showTopNav && (
         <nav className="top-nav flex flex-col h-full bg-white p-4 shadow-md fixed w-2/4 opacity-90 top-0 inset-x-0 z-80">
           <button
@@ -31,7 +30,7 @@ export default function Nav() {
           {navLinks.map(({ to, label }) => (
             <Link
               key={to}
-              className="sidebar-link mb-2 text-black"
+              className="sidebar-link mb-2 s"
               to={to}
               onClick={toggleTopNav}
             >
@@ -41,27 +40,22 @@ export default function Nav() {
         </nav>
       )}
 
-      {/* Navegação Sidebar */}
+
       <nav className="sidebar-nav flex flex-col xl:flex-row items-center xl:items-start relative z-10 p-2">
         {navLinks.map(({ to, label }) => (
           <Link
             key={to}
             to={to}
             className={`sidebar-link px-4 py-2 rounded ${
-              isActive(to) ? "shadow-lg bg-blue-500" : ""
+              isActive(to) ? "shadow-lg bg-[var(--color-secondary)]" : ""
             }`}
           >
             {label}
           </Link>
         ))}
-
-        {/* Input de Data */}
-        <div className="mt-4 xl:mt-0 xl:ml-4 h-3/4 sm:h-auto">
-          <input className="bg-white h-2/4 rounded" type="date" />
-        </div>
       </nav>
 
-      {/* Botão do Menu para telas menores */}
+     
       {!showTopNav && (
         <div className="flex justify-end p-2 xl:hidden sm:flex">
           <button onClick={toggleTopNav} aria-label="Menu">

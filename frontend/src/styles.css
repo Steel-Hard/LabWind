@@ -1,23 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Jomhuria&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
 @import "tailwindcss";
 
-/* Estilização Global */
-#root {
-  @apply text-center text-white;
-}
 
-body {
-  background-color: var(--color-primary);
-  color: black;
-}
-
-/* Dashboard Geral */
-.dashboard-container {
-  background-color: var(--color-primary);
-  min-height: 100vh;
-}
-
-/* Sidebar - Desktop */
+/* Fontes personalizadas */
 .jomhuria-regular {
   font-family: "Jomhuria", serif;
   font-weight: 400;
@@ -32,43 +17,54 @@ body {
   font-variation-settings: "wdth" 100;
 }
 
+/* Estilização Global */
+#root {
+  @apply text-center text-white;
+}
+
+body {
+  background-color: var(--color-primary);
+  color: black;
+}
+
+/* Sidebar */
 .sidebar {
-  @apply w-full fixed top-0 left-0 p-2 z-50 transition-all duration-300 overflow-hidden flex align-middle justify-between lg:h-30;
+  @apply w-full fixed top-0 left-0 p-2 z-50 overflow-hidden flex align-middle justify-between transition-all duration-300 lg:h-30;
   height: 80px;
 }
 
-.sidebar-nav {
-  @apply flex-1 align-middle justify-around hidden xl:flex  sm:hidden text-center ;
-}
-
-
-/* Sidebar - Mobile */
 @media (max-width: 640px) {
   .sidebar {
     height: 100px;
   }
 }
 
-/* Títulos e Links Sidebar */
+.sidebar-nav {
+  @apply flex-1 align-middle justify-around hidden xl:flex sm:hidden text-center;
+}
+
 .sidebar-title {
   @apply text-white font-semibold text-lg hidden sm:block text-center mb-4;
 }
 
 .sidebar-link {
-  @apply text-white hover:text-gray-300 transition-colors text-center flex justify-center align-middle;
-}
-
-/* Conteúdo Principal */
-.main-content {
-  @apply w-[85%] mx-auto p-5 pt-[80px] sm:ml-16;
+  @apply text-black xl:text-white sm:text-black hover:text-gray-300 transition-colors text-center flex justify-center align-middle;
 }
 
 a {
   @apply font-bold text-2xl;
 }
+
+/* Conteúdo Principal */
+.main-content {
+  @apply  mx-auto p-5 pt-[80px] ;
+  min-height: 100vh; /* Usa a altura mínima, permitindo que a grid cresça */
+}
+
 /* Grid de Cards */
 .grid-container {
-  @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 p-10;
+  @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 p-10 w-full;
+  
 }
 
 .card {
@@ -117,7 +113,7 @@ a {
 }
 
 .button-cadastrar {
-  @apply w-[35%] h-20 bottom-30 xl:right-1/8 bg-blue-700 hover:bg-blue-950 text-white p-3 rounded-md text-6xl cursor-pointer transition-colors duration-200;
+  @apply w-[45%] h-20 bottom-30 xl:right-1/8 bg-blue-700 hover:bg-blue-950 text-white p-3 rounded-md text-6xl cursor-pointer transition-colors duration-200 xl:w-[35%] sm:w-[45%];
 }
 
 .button:hover {
