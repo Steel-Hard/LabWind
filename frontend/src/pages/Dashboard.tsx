@@ -1,5 +1,4 @@
-
-import { Header,Nav } from '../components';
+import { Header, Nav } from '../components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faWind, 
@@ -9,6 +8,9 @@ import {
   faGaugeHigh,
   faDroplet
 } from '@fortawesome/free-solid-svg-icons';
+import { useState, useEffect } from 'react';
+import WeatherCard from '../components/WeatherCard';
+import { WeatherData, getSimulatedWeatherData } from '../services/SensorDataService';
 
 const Dashboard: React.FC = () => {
   const [weatherData, setWeatherData] = useState<WeatherData>(getSimulatedWeatherData());
@@ -26,101 +28,62 @@ const Dashboard: React.FC = () => {
 
   return (
     <>
-
-    
-    
       <Header>
-        <Nav/>
+        <Nav />
       </Header>
-    
 
-      <div className="main-content">
-        <div className="grid-container">
-        
-            <div  className="card">
-              <FontAwesomeIcon size={'5x'} color='black' icon={faWind}/>
-            <p className="card-text">Vento </p>
-            </div>
 
-            <div  className="card">
-              <FontAwesomeIcon size={'5x'} color='black' icon={faTemperatureHigh}/>
-            <p className="card-text">Temperatura</p>
-            </div>
-
-            <div  className="card">
-              <FontAwesomeIcon size={'5x'} color='black' icon={faGaugeHigh}/>
-              <div>
-                <p className="card-text">Pressão</p>
-              </div>
-     
-            </div>
-
-            <div  className="card">
-              <FontAwesomeIcon size={'5x'} color='black' icon={faDroplet}/>
-            <p className="card-text">Umidade</p>
-            </div>
-
-            <div  className="card">
-              <FontAwesomeIcon size={'5x'} color='black' icon={faSun}/>
-            <p className="card-text">Radição Solar</p>
-            </div>
-
-            <div  className="card">
-            <FontAwesomeIcon size={'5x'} color='black' icon={faWater}/>
-            <p className="card-text">Ondas</p>
-            </div>
-        
-      <div className="dashboard-container">
+      
         <div className="main-content">
           <div className="grid-container">
+            {/* Cards de informações climáticas */}
             <WeatherCard
               title="Temperatura"
               value={weatherData.temperature.value.toFixed(1)}
               unit={weatherData.temperature.unit}
-              icon="🌡️"
+              icon={      <FontAwesomeIcon size={'5x'} color='black' icon={faTemperatureHigh} />}
               type="temperature"
             />
             <WeatherCard
               title="Umidade"
               value={weatherData.humidity.value.toFixed(1)}
               unit={weatherData.humidity.unit}
-              icon="💧"
+              icon={            <FontAwesomeIcon size={'5x'} color='black' icon={faDroplet} />}
               type="humidity"
             />
             <WeatherCard
               title="Pressão"
               value={weatherData.pressure.value.toFixed(1)}
               unit={weatherData.pressure.unit}
-              icon="🧭"
+              icon={        <FontAwesomeIcon size={'5x'} color='black' icon={faGaugeHigh} />}
               type="pressure"
             />
             <WeatherCard
               title="Radiação Solar"
               value={weatherData.solarRadiation.value.toFixed(1)}
               unit={weatherData.solarRadiation.unit}
-              icon="☀️"
+              icon={  <FontAwesomeIcon size={'5x'} color='black' icon={faSun} />}
               type="solarRadiation"
             />
             <WeatherCard
               title="Velocidade do Vento"
-              value={weatherData.wind.value.toFixed(1)}
+              value={`${weatherData.wind.value.toFixed(1)} ` }
               unit={weatherData.wind.unit}
-              icon="💨"
+              icon={            <FontAwesomeIcon size={'5x'} color='black' icon={faWind} />}
               type="windSpeed"
             />
             <WeatherCard
-              title="Direção do Vento"
+              title="Ondas"
               value={windDirection}
               unit="°"
-              icon="🧭"
+              icon={   <FontAwesomeIcon size={'5x'} color='black' icon={faWater} />}
               type="windDirection"
             />
           </div>
         </div>
-      </div>
-
+   
     </>
   );
-
+};
 
 export default Dashboard;

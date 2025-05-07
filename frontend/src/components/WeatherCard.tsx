@@ -5,7 +5,7 @@ interface WeatherCardProps {
   title: string;
   value: string | number;
   unit: string;
-  icon: string;
+  icon: React.JSX.Element;
   type: 'temperature' | 'humidity' | 'pressure' | 'solarRadiation' | 'windSpeed' | 'windDirection';
 }
 
@@ -76,25 +76,23 @@ const getCardColor = (type: string, value: number): string => {
   return colorScheme.medium;
 };
 
-const getWindDirectionIcon = (degrees: number): string => {
-  const directions = ['↑', '↗️', '→', '↘️', '↓', '↙️', '←', '↖️'];
-  const index = Math.round(degrees / 45) % 8;
-  return directions[index];
-};
+// const getWindDirectionIcon = (degrees: number): string => {
+//   const directions = ['↑', '↗️', '→', '↘️', '↓', '↙️', '←', '↖️'];
+//   const index = Math.round(degrees / 45) % 8;
+//   return directions[index];
+// };
 
 const WeatherCard: React.FC<WeatherCardProps> = ({ title, value, unit, icon, type }) => {
   const numericValue = typeof value === 'string' ? parseFloat(value) : value;
   const backgroundColor = getCardColor(type, numericValue);
-  const isWindDirection = type === 'windDirection';
-  const displayIcon = isWindDirection ? getWindDirectionIcon(numericValue) : icon;
+  // const isWindDirection = type === 'windDirection';
+  // const displayIcon = isWindDirection ? getWindDirectionIcon(numericValue) : icon;
 
   return (
     <div className="weather-card" style={{ backgroundColor }}>
       <div className="weather-card-header">
         <h3>{title}</h3>
-        <span className={`weather-icon ${isWindDirection ? 'wind-direction-icon' : ''}`}>
-          {displayIcon}
-        </span>
+        {icon}
       </div>
       <div className="weather-card-content">
         <span className="weather-value">{value}</span>
