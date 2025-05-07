@@ -113,7 +113,7 @@ a {
 }
 
 .button-cadastrar {
-  @apply w-[45%] h-20 bottom-30 xl:right-1/8 bg-blue-700 hover:bg-blue-950 text-white p-3 rounded-md text-6xl cursor-pointer transition-colors duration-200 xl:w-[35%] sm:w-[45%];
+  @apply w-[45%] h-20 bottom-30 xl:right-1/8 bg-blue-400 hover:bg-blue-950 text-white p-3 rounded-md text-6xl cursor-pointer transition-colors duration-200 xl:w-[35%] sm:w-[45%];
 }
 
 .button:hover {

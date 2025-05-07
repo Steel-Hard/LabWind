@@ -6,13 +6,14 @@ import React, {  ReactNode } from "react";
 
 interface Props{
 children: ReactNode | ReactNode[];
+isTransparent?: boolean;
 }
 
 
-function Header({children}:Props){
+function Header({children,isTransparent}:Props){
   return (
     <>
-      <header className="sidebar bg-transparent">
+      <header className={`sidebar ${ isTransparent? "bg-[var(--color-primary)":"bg-transparent" }]`}>
         {children}
       </header>
     </>

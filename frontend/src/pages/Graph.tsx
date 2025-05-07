@@ -28,7 +28,7 @@ export default function Graph() {
 
   return (
     <>
-      <Header>
+      <Header  isTransparent={true}>
         <Nav />
       </Header>
 

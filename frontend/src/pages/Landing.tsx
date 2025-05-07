@@ -20,12 +20,12 @@ function Landing() {
           />
 
           <img
-            className="z-40 rounded-2xl absolute top-20 xl:size-165"
+            className="z-40 rounded-2xl  absolute top-20 xl:size-120 md:size-120"
             src="./furnas.png"
           />
 
           <div>
-            <p className="roboto-medium absolute text-center text-4xl h-1/3 w-[35%] top-60 right-1/8 text-black">
+            <p className="roboto-medium absolute text-center text-2xl h-1/3 w-[35%] top-60 right-1/8 text-black">
               Solução tecnológica para monitoramento climático no Lago de
               Furnas, oferecendo gráficos interativos e alertas em tempo real,
               visando reduzir riscos para navegantes e comunidades locais.

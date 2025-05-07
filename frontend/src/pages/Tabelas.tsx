@@ -17,7 +17,7 @@ export default function Tabelas() {
 
   return (
     <>
-      <Header>
+      <Header isTransparent={true}>
         <Nav />
       </Header>
       <div className="w-full overflow-x-auto mt-20">
