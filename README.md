@@ -3,6 +3,72 @@
 
   Desenvolvida com tecnologias modernas e técnicas de controle de acesso para garantir uma visualização eficiente e precisa dos dados em tempo real e a privacidade dos dados.</span>
 
+  # 🗂️SPRINTS
+| Sprint  | Datas   | 
+|:-------:| --------------------- |
+| 1  | :calendar: 24/03/2025 a 15/04/2025|  
+| 2   | :calendar: 16/04/2025 a 13/05/2025 | 
+| 3 | :calendar: 14/05/2025 a 11/06/2025 |  
+
+# 📰PRODUCT BACKLOG
+
+| Requisitos Funcionais              |
+|---|
+| RF01 – O sistema deve consumir os dados gerados por três (03) estações meteorológicas específicas. |
+| RF02 – O sistema deve permitir a visualização gráfica dos dados meteorológicos. |
+| RF03 – O sistema deve emitir alertas meteorológicos com base nos dados recebidos. |
+| RF04 – O sistema deve permitir a visualização histórica dos dados, agrupados por estação, no formato tabular. |
+| RF05 – O sistema deve permitir a visualização, em gráfico, os parâmetros de uma estação específica. |
+| RF06 – O sistema deve permitir a visualização do mesmo parâmetro para diversas estações simultaneamente. |
+| RF07 – O sistema deve permitir o download dos dados no formato CSV. |
+| RF08 – O sistema deve ser restrito a usuários cadastrados. |
+
+| Requisitos Não Funcionais           |
+|-------------------------------------|
+| RNF01 – Os gráficos devem ser interativos, permitindo ao usuário explorar os dados de forma dinâmica. |
+| RNF02 – Interface responsiva, com layout consistente em diferentes tamanhos de tela. |
+| RNF03 – Página descritiva do projeto, explicando objetivos, tecnologias utilizadas e instruções de uso. |
+
+# 📝 Sprint 1 - Configuração e Protótipo Inicial (24/03 - 15/04)
+
+| Ator | Ação | Motivo |
+|--------------|--------------------------------------------------------------|------------------------------------------------------------|
+|Como usuário | Quero fazer login no sistema para acessar os dados meteorológicos. | Para garantir acesso seguro às informações. |
+|Como administrador | Quero cadastrar, excluir e gerenciar usuários no sistema. | Para controlar o acesso e manter a gestão de usuários. |
+|Como usuário | Quero visualizar uma página com informações do projeto para entender seus objetivos. | Para compreender o propósito do sistema. |
+|Equipe de desenvolvimento | Quero validar o protótipo no Figma antes da implementação. | Para garantir que o design atenda às necessidades. |
+|Equipe de desenvolvimento | Quero criar um repositório no GitHub com estrutura organizada. | Para versionar e documentar o código eficientemente. |
+|Equipe de desenvolvimento | Quero definir papéis claros na equipe (PO, SM, Dev). | Para organizar as responsabilidades e melhorar a eficiência. |
+|Equipe de desenvolvimento | Quero usar uma ferramenta de controle de tarefas (Trello) para organizar o progresso. | Para gerenciar o desenvolvimento de forma visual e organizada. |
+
+**Entrega da Sprint 1:** Protótipo validado, login funcional, repositório configurado e estrutura inicial do sistema criada.
+
+---
+
+# 📝 Sprint 2 - Visualização de Dados e Gráficos (16/04 - 13/05)
+
+| Ator | Ação | Motivo |
+|--------------|--------------------------------------------------------------|------------------------------------------------------------|
+|Como usuário | Quero visualizar dados históricos das estações em tabela. | Para analisar informações de forma clara. |
+|Como usuário | Quero visualizar gráficos interativos dos parâmetros das estações. | Para entender as variações e tendências. |
+|Como usuário | Quero comparar gráficos de diferentes estações. | Para identificar padrões climáticos. |
+|Como usuário | Quero acessar a plataforma de qualquer dispositivo (responsividade). | Para consultar os dados em qualquer lugar. |
+
+**Entrega da Sprint 2:** Funcionalidades de visualização de dados tabulares e gráficos interativos implementadas e responsivas.
+
+---
+
+# 📝 Sprint 3 - Refinamento e Exportação de Dados (14/05 - 10/06)
+
+| Ator | Ação | Motivo |
+|--------------|--------------------------------------------------------------|------------------------------------------------------------|
+|Como usuário | Quero baixar os dados meteorológicos em CSV. | Para análise offline e armazenamento. |
+|Como usuário | Quero gráficos com legendas, rótulos e detalhes ao passar o mouse. | Para facilitar a compreensão dos dados. |
+|Equipe | Quero realizar testes de usabilidade e corrigir bugs críticos. | Para garantir a qualidade do sistema. |
+|Equipe | Quero manter o repositório bem documentado com instruções de instalação e uso. | Para facilitar manutenção futura. |
+|Equipe | Quero preparar uma apresentação final com demonstração das funcionalidades. | Para comunicar o resultado do projeto de forma clara. |
+
+**Entrega da Sprint 3:** Sistema finalizado, testado, documentado e preparado para apresentação.
 ## Tecnologias Utilizadas
 
 <div style="display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;">
