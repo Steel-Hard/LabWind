@@ -1,3 +1,8 @@
+<div align="center">
+  <img src="https://github.com/Steel-Hard/LabWind/blob/claudsaints/documents/labw_logo.png">
+</div>
+
+
 <h1 align="center">LabWind</h1>
 <span style="font-size:30px; margin-top:20px">Aplicação desenvolvida para a visualização de dados meteorológicos coletados pelo <a href="https://www.instagram.com/irn_unifei/p/C_Tbql6JugA/" target="_blank">Projeto LabWind</a>. 
 
@@ -84,6 +89,12 @@
 |Equipe | Quero preparar uma apresentação final com demonstração das funcionalidades. | Para comunicar o resultado do projeto de forma clara. |
 
 **Entrega da Sprint 3:** Sistema finalizado, testado, documentado e preparado para apresentação.
+
+# WIREFRAME
+<div align="center">
+  
+  <img  src="https://github.com/Steel-Hard/LabWind/blob/main/documents/wireframe.png" />
+</div>
 
 ## Equipe de Desenvolvimento
 
