@@ -1,11 +1,15 @@
 import fs from 'fs';
 import axios from 'axios'; 
 import { ISensorData } from '../types/interfaces/ISensorData';
+import { error } from 'console';
 
 
 let sensorDataArray: Array<ISensorData> = [];
 
-const data = fs.readFileSync('./src/Meteo.csv', { encoding: 'utf8' })
+const path  = process.argv.slice(2);
+let filePath = path[0];
+
+const data = fs.readFileSync(filePath, { encoding: 'utf8' })
                .split(/\r?\n/);
 
 console.log('Dados lidos:', data);
@@ -35,7 +39,8 @@ function processLine(linha: string): ISensorData | null {
       WindSpeed_Inst: parseFloat(l[9].replace(',', '.')),
       WindSpeed_Avg: parseFloat(l[10].replace(',', '.')),
       WindDir_Inst: parseFloat(l[11].replace(',', '.')),
-      WindDir_Avg: parseFloat(l[12].replace(',', '.'))
+      WindDir_Avg: parseFloat(l[12].replace(',', '.')),
+      estacao: l[13]
     };
     return sensorDataObj;
   } catch (error) {

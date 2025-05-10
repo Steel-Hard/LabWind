@@ -12,4 +12,5 @@ export interface ISensorData{
     WindSpeed_Avg: number;
     WindDir_Inst: number;
     WindDir_Avg: number;
+    estacao: string;
 }
