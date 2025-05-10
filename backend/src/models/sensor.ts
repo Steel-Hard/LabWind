@@ -52,6 +52,11 @@ const SensorDataSchema = new mongoose.Schema({
   WindDir_Avg: {
     type: Number,
     required: true
+  },
+  estacao: {
+    type: String,
+    required: true,
+    enum: ['A','B']
   }
 });
 
