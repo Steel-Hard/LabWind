@@ -10,7 +10,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { useState, useEffect } from 'react';
 import WeatherCard from '../components/WeatherCard';
-import { WeatherData, getSimulatedWeatherData } from '../services/SensorDataService';
+import { WeatherData, getSimulatedWeatherData } from '../utils/simulatedWeather';
 
 const Dashboard: React.FC = () => {
   const [weatherData, setWeatherData] = useState<WeatherData>(getSimulatedWeatherData());

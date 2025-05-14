@@ -4,12 +4,13 @@ import SensorDataService from "../services/SensorDataService";
 import { ISensorData } from "../types";
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
+
 export default function Graph() {
   const [data, setData] = useState<ISensorData[]>([]);
 
   useEffect(() => {
     const fetchSensor = async () => {
-      const sensor = await SensorDataService.getData();
+      const sensor = await SensorDataService.getByDateAndEstacao("2025-05-01","A");
       setData(sensor);
     };
     fetchSensor();
@@ -28,7 +29,7 @@ export default function Graph() {
 
   return (
     <>
-      <Header  isTransparent={true}>
+      <Header  isTransparent={false}>
         <Nav />
       </Header>
 

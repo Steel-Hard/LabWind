@@ -9,15 +9,15 @@ export default function Tabelas() {
 
   useEffect(() => {
     const fetchSensor = async () => {
-      const sensor = await SensorDataService.getData();
-      setData(sensor);
+      const sensor = await SensorDataService.getByDateAndEstacao("2025-05-13","A");
+      setData(sensor);  
     };
     fetchSensor();
   }, []);
 
   return (
     <>
-      <Header isTransparent={true}>
+      <Header isTransparent={false}>
         <Nav />
       </Header>
       <div className="w-full overflow-x-auto mt-20">
