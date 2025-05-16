@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://github.com/Steel-Hard/LabWind/blob/claudsaints/documents/labw_logo.png">
+  <img src="./documents/labw_logo.png">
 </div>
 
 

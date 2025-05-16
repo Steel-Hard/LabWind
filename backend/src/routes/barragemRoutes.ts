@@ -3,6 +3,6 @@ import BarragemDataController from "../controllers/BarragemDataController";
 
 const router = Router();
 
-router.post("/", BarragemDataController.buscarVolumeUtil);
+router.get("/", BarragemDataController.buscarVolumeUtil);
 
 export default router;
