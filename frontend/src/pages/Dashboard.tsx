@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Header, Nav } from '../components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -11,10 +12,14 @@ import {
 import { useState, useEffect } from 'react';
 import WeatherCard from '../components/WeatherCard';
 import { WeatherData, getSimulatedWeatherData } from '../utils/simulatedWeather';
+import BarragemService from '../services/BarragemService';
+
 
 const Dashboard: React.FC = () => {
   const [weatherData, setWeatherData] = useState<WeatherData>(getSimulatedWeatherData());
   const [windDirection, setWindDirection] = useState(0);
+  const [barragemData, setBarragemData] = useState<string | any>();
+
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -22,10 +27,21 @@ const Dashboard: React.FC = () => {
       // Simula mudança na direção do vento (0-359 graus)
       setWindDirection(Math.floor(Math.random() * 360));
     }, 5000);
-
     return () => clearInterval(interval);
   }, []);
 
+  useEffect(() => {
+    const fetchBarragemData = async () => {
+      try {
+        const response = await BarragemService.getStatus();
+        setBarragemData(response.volumeUtil);
+      } catch (error) {
+        console.error("Erro ao buscar dados da barragem:", error);
+      }
+    };
+    fetchBarragemData();
+  }, []
+);
   return (
     <>
       <Header>
@@ -80,8 +96,16 @@ const Dashboard: React.FC = () => {
               type="windDirection"
             />
           </div>
+          <div className="barragem-status">
+            {barragemData ? (
+              <div>
+                <p>Volume Útil da Barragem: {barragemData} m³</p>
+              </div>
+            ) : (
+              <p>Carregando dados da barragem...</p>
+            )}
         </div>
-   
+      </div>      
     </>
   );
 };

@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import ApiService from "./ApiService";
 import { ISensorData } from "../types";
 
