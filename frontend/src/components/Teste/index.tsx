@@ -1,0 +1,46 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import { useSensor } from '../../contexts/sensorContext';
+import Select, { MultiValue, ActionMeta } from 'react-select';
+import { OptionType, CheckboxOption } from '../Options/CheckboxOption';
+
+const optionsEstacoes: OptionType[] = [
+  { value: 'estacao0', label: 'Estação 0' },
+  { value: 'A', label: 'Estação 1' },
+  { value: 'B', label: 'Estação 2' },
+];
+
+export function Teste() {
+  const { setStations, setDate } = useSensor();
+
+  const handleStations = (
+    newValue: MultiValue<OptionType>,
+    _actionMeta: ActionMeta<OptionType>
+  ) => {
+    setStations(newValue.map(o => o.value));
+  };
+
+  return (
+    <div className="flex flex-wrap gap-4 mt-8">
+      <div className="p-4 w-full md:w-auto">
+        <label className="block text-lg font-semibold text-white mb-1">Estações (Múltiplas)</label>
+        <Select
+          options={optionsEstacoes}
+          isMulti
+          onChange={handleStations}
+          closeMenuOnSelect={false}
+          components={{ Option: CheckboxOption }}
+          placeholder="Selecione as estações"
+          className="text-black"
+        />
+      </div>
+      <div className="p-4 w-full md:w-auto">
+        <label className="block text-lg font-semibold text-white mb-1">Data</label>
+        <input
+          type="date"
+          onChange={e => setDate(e.target.value)}
+          className="bg-white text-black border rounded px-4 py-2 shadow-sm"
+        />
+      </div>
+    </div>
+  );
+}
