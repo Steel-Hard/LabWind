@@ -4,7 +4,7 @@ function Landing() {
   return (
     <>
       <div className="flex-1">
-        <Header>
+        <Header isTransparent={true}>
           <h1 className="jomhuria-regular text-8xl text-shadow-lg/100 ml-10">
             LabWind
           </h1>

@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Header, Nav } from '../components';
+import { Header, Nav,WeatherCard } from '../components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faWind, 
@@ -10,7 +10,6 @@ import {
   faDroplet
 } from '@fortawesome/free-solid-svg-icons';
 import { useState, useEffect } from 'react';
-import WeatherCard from '../components/WeatherCard';
 import { WeatherData, getSimulatedWeatherData } from '../utils/simulatedWeather';
 import BarragemService from '../services/BarragemService';
 

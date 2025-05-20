@@ -1,5 +1,8 @@
 import { useState } from "react";
-import { TiThMenu } from "react-icons/ti";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faBars
+} from '@fortawesome/free-solid-svg-icons';
 import { Link, useLocation } from "react-router-dom";
 
 export default function Nav() {
@@ -59,7 +62,7 @@ export default function Nav() {
       {!showTopNav && (
         <div className="flex justify-end p-2 xl:hidden sm:flex">
           <button onClick={toggleTopNav} aria-label="Menu">
-            <TiThMenu size={40} />
+          <FontAwesomeIcon size={"2xl"} icon={faBars} />
           </button>
         </div>
       )}

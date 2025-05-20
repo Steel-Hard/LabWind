@@ -3,7 +3,7 @@ import { Header, Nav } from "../components";
 import SensorDataService from "../services/SensorDataService";
 import { ISensorData } from "../types";
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
-
+import {Options} from "../components"
 
 export default function Graph() {
   const [data, setData] = useState<ISensorData[]>([]);
@@ -32,6 +32,8 @@ export default function Graph() {
       <Header  isTransparent={false}>
         <Nav />
       </Header>
+
+      <Options date={true} estacoes={true}/>
 
       <div className="mt-20 bg-white p-6">
        

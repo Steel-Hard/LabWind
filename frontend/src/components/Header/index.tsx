@@ -13,7 +13,7 @@ isTransparent?: boolean;
 function Header({children,isTransparent}:Props){
   return (
     <>
-      <header className={`sidebar ${ isTransparent? "bg-[var(--color-primary)":"bg-transparent" }]`}>
+      <header className={`sidebar ${ isTransparent? "bg-transparent":"bg-[var(--color-primary)]" }`}>
         {children}
       </header>
     </>
