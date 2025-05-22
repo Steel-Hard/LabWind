@@ -98,7 +98,7 @@ const Dashboard: React.FC = () => {
           <div className="barragem-status">
             {barragemData ? (
               <div>
-                <p>Volume Útil da Barragem: {barragemData} m³</p>
+                <p>Volume Útil da Barragem: {barragemData} %</p>
               </div>
             ) : (
               <p>Carregando dados da barragem...</p>
