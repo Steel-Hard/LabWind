@@ -33,7 +33,12 @@ export const SensorProvider = ({ children }: { children: ReactNode }) => {
     }
 
     const METRICS = [
-      'temp_C', 'hum', 'press_Bar', 'SR_Wm2', 'WindSpeed_Avg', 'WindPeak_ms'
+      'temp',       
+      'hum',        
+      'bar',        
+      'uv_level',   
+      'wind_avg',   
+      'wind_peak'   
     ];
 
     Promise.all(

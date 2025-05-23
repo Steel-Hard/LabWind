@@ -2,12 +2,12 @@ import { useSensor } from '../../contexts/sensorContext';
 import { ChartCard } from '../ChartCard';
 
 const METRIC_INFO = [
-  { key: 'temp_C', title: 'Temperatura (°C)' },
+  { key: 'temp', title: 'Temperatura (°C)' },
   { key: 'hum', title: 'Umidade (%)' },
-  { key: 'press_Bar', title: 'Pressão (Bar)' },
-  { key: 'SR_Wm2', title: 'Radiação Solar (W/m²)' },
-  { key: 'WindSpeed_Avg', title: 'Velocidade do Vento Média' },
-  { key: 'WindPeak_ms', title: 'Rajada de Vento (m/s)' },
+  { key: 'bar', title: 'Pressão (Bar)' },
+  { key: 'uv_level', title: 'Radiação Solar (W/m²)' },
+  { key: 'wind_avg', title: 'Velocidade do Vento Média' },
+  { key: 'wind_peak', title: 'Rajada de Vento (m/s)' },
 ];
 
 const METRIC_COLOR_MAP: Record<string, string[]> = {

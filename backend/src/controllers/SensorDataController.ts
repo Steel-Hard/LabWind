@@ -44,7 +44,7 @@ class SensorDataController {
        const fimDia = new Date(`${date}T23:59:59.999Z`);
 
       const data = await SensorDataModel.find({
-        date: {$gte: inicioDia, $lte: fimDia},
+        reading_time: {$gte: inicioDia, $lte: fimDia},
         estacao: estacao
         
       },)
@@ -73,7 +73,7 @@ class SensorDataController {
       const fimDia = new Date(`${date}T23:59:59.999Z`);
   
       const data = await SensorDataModel.find({
-        date: { $gte: inicioDia, $lte: fimDia }
+        reading_time: { $gte: inicioDia, $lte: fimDia }
       });
   
       if (data && data.length > 0) {

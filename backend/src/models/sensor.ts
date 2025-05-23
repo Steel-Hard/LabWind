@@ -1,63 +1,64 @@
 import mongoose from "mongoose";
 
 const SensorDataSchema = new mongoose.Schema({
-  date: {
-    type: Date,
-    required: true
-  },
-  time: {
-    type: String,
-    required: true
-  },
-  temp_C: {
-    type: Number,
-    required: true
-  },
-  hum: {
-    type: Number,
-    required: true
-  },
-  press_Bar: {
-    type: Number,
-    required: true
-  },
-  tempCabine_C: {
-    type: Number,
-    required: true
-  },
-  charge: {
-    type: Number,
-    required: true
-  },
-  SR_Wm2: {
-    type: Number,
-    required: true
-  },
-  WindPeak_ms: {
-    type: Number,
-    required: true
-  },
-  WindSpeed_Inst: {
-    type: Number,
-    required: true
-  },
-  WindSpeed_Avg: {
-    type: Number,
-    required: true
-  },
-  WindDir_Inst: {
-    type: Number,
-    required: true
-  },
-  WindDir_Avg: {
-    type: Number,
-    required: true
-  },
-  estacao: {
-    type: String,
-    required: true,
-    enum: ['A','B']
-  }
+ reading_time: {
+  type: Date,
+  required: true
+},
+temp: {
+  type: Number,
+  required: true
+},
+hum: {
+  type: Number,
+  required: true
+},
+bar: {
+  type: Number,
+  required: true
+},
+cab_temp: {
+  type: Number,
+  required: true
+},
+bat_volts: {
+  type: Number,
+  required: true
+},
+uv_level: {
+  type: Number,
+  required: true
+},
+wind_peak: {
+  type: Number,
+  required: true
+},
+wind_rt: {
+  type: Number,
+  required: true
+},
+wind_avg: {
+  type: Number,
+  required: true
+},
+wind_dir_rt: {
+  type: Number,
+  required: true
+},
+wind_dir_avg: {
+  type: Number,
+  required: true
+},
+time: {
+  type: String,
+  required: true
+},
+estacao: {
+  type: String,
+  required: true,
+  enum: ['A', 'B']
+}
+
 });
 
 

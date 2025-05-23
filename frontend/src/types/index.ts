@@ -1,15 +1,16 @@
-export interface ISensorData{
-    date: string;
-    time: string;
-    temp_C: number;
+export interface ISensorData {
+    reading_time: string; 
+    time: string,
+    temp: number;
     hum: number;
-    press_Bar: number;
-    tempCabine_C: number;
-    charge: number;
-    SR_Wm2: number;
-    WindPeak_ms: number;
-    WindSpeed_Inst: number;
-    WindSpeed_Avg: number;
-    WindDir_Inst: number;
-    WindDir_Avg: number;
+    bar: number;
+    cab_temp: number;
+    bat_volts: number;
+    uv_level: number;
+    wind_peak: number;
+    wind_rt: number;
+    wind_avg: number;
+    wind_dir_rt: number;
+    wind_dir_avg: number;
+    estacao: string;
 }
