@@ -65,7 +65,14 @@ function Landing() {
             alt="Furnas"
           />
 
-          <img src="/SH.png" alt="Logo" />
+          <img
+            src="/SH.png"
+            alt="Logo"
+            style={{ cursor: "pointer" }}
+            onClick={() =>
+              window.open("https://github.com/steel-hard", "_blank")
+            }
+          />
         </div>
       </div>
     </>

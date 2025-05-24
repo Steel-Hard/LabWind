@@ -6,8 +6,8 @@ class UserService {
 
         return data;
     }
-    public static async signup(name:string,email:string,password:string){
-        const {data} = await api.post("/users/signup",{name,email,password})
+    public static async signup(name:string,email:string,password:string, role:string){
+        const {data} = await api.post("/users/signup",{name,email,password,role})
 
         return data;
     }

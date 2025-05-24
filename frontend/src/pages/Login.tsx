@@ -11,14 +11,14 @@ const Login: React.FC = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch("https://seu-backend.com/api/login", {
+      const response = await fetch("http://localhost:3000/users/signin/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
           email,
-          senha,
+          password: senha,
         }),
       });
 
@@ -45,9 +45,14 @@ const Login: React.FC = () => {
   return (
     <div className="container">
       <div className="login-box">
-        <div className="logo">
+        <div
+          className="logo"
+          onClick={() => navigate("/")}
+          style={{ cursor: "pointer" }}
+        >
           <img src="/SHlogo-preto.png" alt="Logo" />
         </div>
+        
         <form onSubmit={handleSubmit} className="form">
           <input
             type="email"
@@ -63,13 +68,24 @@ const Login: React.FC = () => {
             onChange={(e) => setSenha(e.target.value)}
             className="input"
           />
-          {erro && <div style={{color:"black"}} className="error-message">{erro}</div>}
+          {erro && (
+            <div style={{ color: "black" }} className="error-message">
+              {erro}
+            </div>
+          )}
           <button type="submit" className="button">
             Entrar
           </button>
           <span style={{ color: "black" }}>
             Não tem cadastro?{" "}
-            <a onClick={handleCadastroClick} style={{ cursor: "pointer", textDecoration: "underline", fontSize:"15px" }}>
+            <a
+              onClick={handleCadastroClick}
+              style={{
+                cursor: "pointer",
+                textDecoration: "underline",
+                fontSize: "15px",
+              }}
+            >
               Clique aqui.
             </a>
           </span>
