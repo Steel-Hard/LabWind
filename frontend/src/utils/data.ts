@@ -17,9 +17,9 @@ function yearMonthDay(date: Date | string): string {
     const nDate = new Date(date);
    
     if (nDate.getMonth() < 9) {
-        return `${nDate.getFullYear()}-0${nDate.getMonth() + 1}-${String(nDate.getDate()).padStart(2, '0')}`;
+        return `${nDate.getFullYear()}-0${nDate.getMonth() + 1}-${String(nDate.getUTCDate()).padStart(2, '0')}`;
     } else {
-        return `${nDate.getFullYear()}-${nDate.getMonth() + 1}-${String(nDate.getDate()).padStart(2, '0')}`;
+        return `${nDate.getFullYear()}-${nDate.getMonth() + 1}-${String(nDate.getUTCDate()).padStart(2, '0')}`;
     }
     
 }

@@ -9,14 +9,13 @@ import {
   YAxis,
   Tooltip,
   Legend,
+  Label,
 } from 'recharts';
 import { ISensorData } from '../../types';
 
 export type ChartCardProps = {
   data: ISensorData[];
-  /** nomes dos campos a serem plotados, ex: ['WindSpeed_Avg_estacaoA','WindSpeed_Avg_estacaoB'] */
   dataKeys: string[];
-  /** cores correspondentes a cada dataKey */
   colors: string[];
   title?: string;
 };
@@ -32,26 +31,51 @@ export const ChartCard = ({
   return (
   <div className="mb-6 bg-white" style={{ minWidth: '800px' }}>
     {title && <h3 className="text-lg text-black font-semibold mb-2">{title}</h3>}
-    <ResponsiveContainer width="100%" height={400}>
-      <LineChart
-        data={data}
-        margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
-      >
-        <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="time" />
-        <YAxis />
-        <Tooltip />
-        <Legend />
-        {dataKeys.map((key, i) => (
-          <Line
-            key={key}
-            type="monotone"
-            dataKey={key}
-            stroke={colors[i]}
-            dot={false}
-          />
-        ))}
-      </LineChart>
-    </ResponsiveContainer>
+   <ResponsiveContainer width="100%" height={400}>
+  <LineChart
+    data={data}
+    margin={{ top: 20, right: 30, left: 20, bottom: 30 }} // espaço para o label X
+  >
+    <CartesianGrid strokeDasharray="3 3" />
+    
+    <XAxis dataKey="time">
+      <Label
+        value="Tempo"
+        offset={-10}
+        position="insideBottom"
+        style={{ textAnchor: 'middle' }}
+      />
+    </XAxis>
+
+
+    <YAxis domain={[0, 20]}/>
+    <YAxis domain={[0, 'auto']}>
+      <Label
+        value="Valor"
+        angle={-90}
+        position="insideLeft"
+        style={{ textAnchor: 'middle' }}
+      />
+    </YAxis>
+
+    <Tooltip />
+
+    <Legend
+      verticalAlign="top"
+      align="center"
+      wrapperStyle={{ paddingBottom: '20px' }}
+    />
+
+    {dataKeys.map((key, i) => (
+      <Line
+        key={key}
+        type="monotone"
+        dataKey={key}
+        stroke={colors[i]}
+        dot={false}
+      />
+    ))}
+  </LineChart>
+</ResponsiveContainer>
   </div>
 );}

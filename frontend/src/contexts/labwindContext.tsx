@@ -24,6 +24,8 @@ type SensorContextType = {
   setDate: (d: string) => void;
   data: ISensorData[];
   setData: (data: ISensorData[]) => void;
+  stations: Station[];                   
+  setStations: (s: Station[]) => void;   
 };
 
 
@@ -40,10 +42,11 @@ export const LabwindProvider = ({ children }: { children: ReactNode }) => {
   const [station, setStation] = useState<Station>();
   const [date, setDate] = useState<string>("");
   const [data, setData] = useState<ISensorData[]>([]);
+  const [stations, setStations] = useState<Station[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {
-    if (!station && !date) return;
+    if (!station || !date) return;
 
     if (station === Station.SIMULADA_1 || station === Station.SIMULADA_2) {
       const ndata = await SensorDataService.getByDateAndEstacao(date, station);
@@ -62,7 +65,7 @@ export const LabwindProvider = ({ children }: { children: ReactNode }) => {
 
   return (
     <LabwindContext.Provider
-      value={{ station, setStation, date, setDate, data, setData}}
+      value={{ station, setStation, date, setDate, data, setData, stations, setStations}}
     >
       {children}
     </LabwindContext.Provider>

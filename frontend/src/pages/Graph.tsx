@@ -1,17 +1,16 @@
-import { SensorProvider } from '../contexts/sensorContext';
-import { Teste,ChartList, Header, Nav  } from '../components';
-
+import {  ChartList, Header, Nav } from "../components";
+import { GraphSelect } from "../components/GraphSelect";
 
 export default function SensorDashboard() {
   return (
-    <SensorProvider>
+    <>
       <Header>
-        <Nav/>
+        <Nav />
       </Header>
-      <Teste />
+      <GraphSelect/>
       <div className="p-6 overflow-x-auto w-full">
         <ChartList />
       </div>
-    </SensorProvider>
+    </>
   );
 }

@@ -1,15 +1,15 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { useSensor } from '../../contexts/sensorContext';
+import { useSensor } from '../../contexts/graphContext';
 import Select, { MultiValue, ActionMeta } from 'react-select';
 import { OptionType, CheckboxOption } from '../Options/CheckboxOption';
 
 const optionsEstacoes: OptionType[] = [
-  { value: 'estacao0', label: 'Estação 0' },
-  { value: 'A', label: 'Estação 1' },
-  { value: 'B', label: 'Estação 2' },
+  { value: 'O', label: 'ORIGIN' },
+  { value: 'A', label: 'SIMULADA 1' },
+  { value: 'B', label: 'SIMULADA 2' },
 ];
 
-export function Teste() {
+export function GraphSelect() {
   const { setStations, setDate } = useSensor();
 
   const handleStations = (
@@ -20,7 +20,7 @@ export function Teste() {
   };
 
   return (
-    <div className="flex flex-wrap gap-4 mt-8">
+    <div className="flex flex-wrap gap-4 mt-8 items-center justify-center ">
       <div className="p-4 w-full md:w-auto">
         <label className="block text-lg font-semibold text-white mb-1">Estações (Múltiplas)</label>
         <Select

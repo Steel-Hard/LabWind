@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Landing, Dashboard, Login,SignUp,Tabelas, Graph } from "./pages";
 import { ThemeProvider } from "./contexts/themeContext";
 import { LabwindProvider } from "./contexts/labwindContext";
+import { GraphProvider } from "./contexts/graphContext";
 function App() {
   return (
     <ThemeProvider>
@@ -15,7 +16,11 @@ function App() {
               <Tabelas/>
             </LabwindProvider>
           }/>
-          <Route path="/graficos" element={<Graph/>}/>
+          <Route path="/graficos" element={
+             <GraphProvider>
+              <Graph/>
+            </GraphProvider>
+          }/>
           <Route path="/cadastro" element={<SignUp/>} />
           <Route path="*" element={<Landing />} />
         </Routes>

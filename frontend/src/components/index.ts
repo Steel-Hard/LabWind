@@ -2,7 +2,7 @@ import Header from "./Header";
 import Nav from "./Nav/Nav";
 import WeatherCard from "./WeatherCard/WeatherCard";
 import Options from "./Options";
-import { Teste } from "./Teste";
+import { GraphSelect} from "./GraphSelect";
 import { ChartList } from "./ChartList";
 
 export {
@@ -10,7 +10,7 @@ export {
     Nav,
     WeatherCard,
     Options,
-    Teste,
+    GraphSelect,
     ChartList
     
 }
