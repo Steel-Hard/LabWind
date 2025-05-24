@@ -1,3 +1,4 @@
+import { ISensorData } from "../types";
 import ApiService from "./ApiService";
 
 class LabwindDataService extends ApiService {
@@ -6,11 +7,11 @@ class LabwindDataService extends ApiService {
     }
 
     async fetchByDate(date: string) {
-        return this.get(`/by-date?date=${date}`);
+        return this.get<ISensorData[]>(`/by-date?date=${date}`);
     }
 
     async fetchLastOccurrence() {
-        return this.get("/last");
+        return this.get<ISensorData>("/last");
     }
 
     async fetchExtremeValues() {

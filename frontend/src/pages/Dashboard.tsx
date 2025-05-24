@@ -49,7 +49,7 @@ const Dashboard: React.FC = () => {
 
 
       
-        <div className="main-content">
+        <div className="flex items-center justify-center h-screen flex-col">
           <div className="grid-container">
             {/* Cards de informações climáticas */}
             <WeatherCard

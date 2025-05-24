@@ -1,17 +1,8 @@
-.dashboard-container {
-  min-height: 100vh;
-  background-color: #0C2E3F;
-  padding: 2rem;
-  width: 100%;
-}
-
-.main-content {
-  max-width: 1200px;
-  margin: 0 auto;
-}
 
 .grid-container {
   display: grid;
+  height: 100%;
+  margin-top: 5rem;
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
   padding: 1rem;

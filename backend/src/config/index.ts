@@ -26,20 +26,28 @@ function processLine(linha: string): ISensorData | null {
     const dia = parseInt(l[0].substring(0, 2));
     const dateObj = new Date(ano, mes, dia);
 
+    const [horaStr, minutoStr] = l[1].split(':');
+    const hora = parseInt(horaStr);
+    const minuto = parseInt(minutoStr);
+
+    dateObj.setHours(hora, minuto, 0, 0);
+
+
+    //const dateObj = new Date(Date.UTC(ano, mes, dia, hora, minuto, 0));
     const sensorDataObj: ISensorData = {
-      date: dateObj,
+      reading_time: dateObj, 
       time: l[1],
-      temp_C: parseFloat(l[2].replace(',', '.')),
+      temp: parseFloat(l[2].replace(',', '.')),
       hum: parseFloat(l[3].replace(',', '.')),
-      press_Bar: parseFloat(l[4].replace(',', '.')),
-      tempCabine_C: parseFloat(l[5].replace(',', '.')),
-      charge: parseFloat(l[6].replace(',', '.')),
-      SR_Wm2: parseFloat(l[7].replace(',', '.')),
-      WindPeak_ms: parseFloat(l[8].replace(',', '.')),
-      WindSpeed_Inst: parseFloat(l[9].replace(',', '.')),
-      WindSpeed_Avg: parseFloat(l[10].replace(',', '.')),
-      WindDir_Inst: parseFloat(l[11].replace(',', '.')),
-      WindDir_Avg: parseFloat(l[12].replace(',', '.')),
+      bar: parseFloat(l[4].replace(',', '.')),
+      cab_temp: parseFloat(l[5].replace(',', '.')),
+      bat_volts: parseFloat(l[6].replace(',', '.')),
+      uv_level: parseFloat(l[7].replace(',', '.')),  
+      wind_peak: parseFloat(l[8].replace(',', '.')),
+      wind_rt: parseFloat(l[9].replace(',', '.')),
+      wind_avg: parseFloat(l[10].replace(',', '.')),
+      wind_dir_rt: parseFloat(l[11].replace(',', '.')),
+      wind_dir_avg: parseFloat(l[12].replace(',', '.')),
       estacao: l[13]
     };
     return sensorDataObj;
