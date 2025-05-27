@@ -8,7 +8,6 @@ import {
   XAxis,
   YAxis,
   Tooltip,
-  Legend,
   Label,
 } from 'recharts';
 import { ISensorData } from '../../types';
@@ -48,7 +47,23 @@ export const ChartCard = ({
     </XAxis>
 
 
-    <YAxis domain={[0, 20]}/>
+    <YAxis domain={[0, 20]}>
+    <Label
+        value="Valor"
+        angle={-90}
+        position="insideLeft"
+        style={{ textAnchor: 'middle' }}
+      />
+    </YAxis>
+       <YAxis domain={[0, 650]}>
+    <Label
+        value="Valor"
+        angle={-90}
+        position="insideLeft"
+        style={{ textAnchor: 'middle' }}
+      /> 
+
+    </YAxis>
     <YAxis domain={[0, 'auto']}>
       <Label
         value="Valor"
@@ -59,12 +74,6 @@ export const ChartCard = ({
     </YAxis>
 
     <Tooltip />
-
-    <Legend
-      verticalAlign="top"
-      align="center"
-      wrapperStyle={{ paddingBottom: '20px' }}
-    />
 
     {dataKeys.map((key, i) => (
       <Line

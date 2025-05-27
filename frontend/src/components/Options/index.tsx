@@ -9,7 +9,7 @@ function Options({ date, estacoesSelector }: IOptions) {
   const { setStation, setDate } = useLabwind();
 
   return (
-    <div className="w-full flex flex-col md:flex-row md:justify-center gap-3 md:items-center mt-8 space-y-4 md:space-y-0">
+    <div className="w-full flex flex-col md:flex-row md:justify-center gap-3 md:items-center mt-20  space-y-4 md:space-y-0">
 
       {estacoesSelector && (
         <div className="flex flex-col p-4 items-start md:items-center space-y-2 md:space-y-0 w-full md:w-auto">

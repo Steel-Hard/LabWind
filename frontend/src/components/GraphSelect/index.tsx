@@ -4,9 +4,9 @@ import Select, { MultiValue, ActionMeta } from 'react-select';
 import { OptionType, CheckboxOption } from '../Options/CheckboxOption';
 
 const optionsEstacoes: OptionType[] = [
-  { value: 'O', label: 'ORIGIN' },
-  { value: 'A', label: 'SIMULADA 1' },
-  { value: 'B', label: 'SIMULADA 2' },
+  { value: 'origem', label: 'Origem' },
+  { value: 'simulada_1', label: 'Simulada 1' },
+  { value: 'simulada_2', label: 'Simulada 2' },
 ];
 
 export function GraphSelect() {
@@ -20,7 +20,7 @@ export function GraphSelect() {
   };
 
   return (
-    <div className="flex flex-wrap gap-4 mt-8 items-center justify-center ">
+    <div className="flex flex-wrap gap-4 mt-20 items-center justify-center ">
       <div className="p-4 w-full md:w-auto">
         <label className="block text-lg font-semibold text-white mb-1">Estações (Múltiplas)</label>
         <Select

@@ -28,9 +28,9 @@ export function ChartList() {
   return (
     <>
       {METRIC_INFO.map((metric) => {
-
         //possíveis chaves com base nas estações
         const expectedKeys = stations.map(est => `${metric.key}_${est}`);
+
 
        
         const availableKeys = expectedKeys;

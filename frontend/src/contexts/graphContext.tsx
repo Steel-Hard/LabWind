@@ -43,7 +43,7 @@ export const GraphProvider = ({ children }: { children: ReactNode }) => {
 
     Promise.all(
     stations.map(est => {
-      if (est === 'O') {
+      if (est === 'origem') {
        
         return LabwindDataService.fetchByDate(date).then(data =>
           data.map(d => ({
@@ -56,7 +56,7 @@ export const GraphProvider = ({ children }: { children: ReactNode }) => {
         );
       } else {
    
-        return SensorDataService.getByDateAndEstacao(date, est).then(data =>
+        return SensorDataService.getByDateAndEstacao(date, est === "simulada_1" ? "A":"B").then(data =>
           data.map(d => ({
             time: d.time,
             ...METRICS.reduce((acc, key) => {
