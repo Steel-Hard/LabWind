@@ -1,10 +1,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Header, Nav,WeatherCard } from '../components';
+import { Header, Nav, WeatherCard } from '../components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
-  faWind, 
-  faTemperatureHigh, 
-  faWater, 
+  faWind,
+  faTemperatureHigh,
+  faWater,
   faSun,
   faGaugeHigh,
   faDroplet
@@ -13,17 +13,14 @@ import { useState, useEffect } from 'react';
 import { WeatherData, getSimulatedWeatherData } from '../utils/simulatedWeather';
 import BarragemService from '../services/BarragemService';
 
-
 const Dashboard: React.FC = () => {
   const [weatherData, setWeatherData] = useState<WeatherData>(getSimulatedWeatherData());
   const [windDirection, setWindDirection] = useState(0);
   const [barragemData, setBarragemData] = useState<string | any>();
 
-
   useEffect(() => {
     const interval = setInterval(() => {
       setWeatherData(getSimulatedWeatherData());
-      // Simula mudança na direção do vento (0-359 graus)
       setWindDirection(Math.floor(Math.random() * 360));
     }, 5000);
     return () => clearInterval(interval);
@@ -39,72 +36,72 @@ const Dashboard: React.FC = () => {
       }
     };
     fetchBarragemData();
-  }, []
-);
+  }, []);
+
   return (
     <>
       <Header>
         <Nav />
       </Header>
 
+      <div className="page-container min-h-screen flex flex-col items-center p-4">
+      <div className="grid-container flex-1 flex items-center justify-center">
+          <WeatherCard
+            title="Temperatura"
+            value={weatherData.temperature.value.toFixed(1)}
+            unit={weatherData.temperature.unit}
+            icon={<FontAwesomeIcon size={'5x'} color='black' icon={faTemperatureHigh} />}
+            type="temperature"
+          />
+          <WeatherCard
+            title="Umidade"
+            value={weatherData.humidity.value.toFixed(1)}
+            unit={weatherData.humidity.unit}
+            icon={<FontAwesomeIcon size={'5x'} color='black' icon={faDroplet} />}
+            type="humidity"
+          />
+          <WeatherCard
+            title="Pressão"
+            value={weatherData.pressure.value.toFixed(1)}
+            unit={weatherData.pressure.unit}
+            icon={<FontAwesomeIcon size={'5x'} color='black' icon={faGaugeHigh} />}
+            type="pressure"
+          />
+          <WeatherCard
+            title="Radiação Solar"
+            value={weatherData.solarRadiation.value.toFixed(1)}
+            unit={weatherData.solarRadiation.unit}
+            icon={<FontAwesomeIcon size={'5x'} color='black' icon={faSun} />}
+            type="solarRadiation"
+          />
+          <WeatherCard
+            title="Velocidade do Vento"
+            value={`${weatherData.wind.value.toFixed(1)} `}
+            unit={weatherData.wind.unit}
+            icon={<FontAwesomeIcon size={'5x'} color='black' icon={faWind} />}
+            type="windSpeed"
+          />
+          <WeatherCard
+            title="Ondas"
+            value={windDirection}
+            unit="°"
+            icon={<FontAwesomeIcon size={'5x'} color='black' icon={faWater} />}
+            type="windDirection"
+          />
+        </div>
 
-      
-        <div className="flex items-center mt-22 justify-center h-screen flex-col">
-          <div className="grid-container">
-            {/* Cards de informações climáticas */}
+        {barragemData && (
+         <div className="dam-card-container w-full flex justify-center mt-10">
             <WeatherCard
-              title="Temperatura"
-              value={weatherData.temperature.value.toFixed(1)}
-              unit={weatherData.temperature.unit}
-              icon={      <FontAwesomeIcon size={'5x'} color='black' icon={faTemperatureHigh} />}
-              type="temperature"
-            />
-            <WeatherCard
-              title="Umidade"
-              value={weatherData.humidity.value.toFixed(1)}
-              unit={weatherData.humidity.unit}
-              icon={            <FontAwesomeIcon size={'5x'} color='black' icon={faDroplet} />}
-              type="humidity"
-            />
-            <WeatherCard
-              title="Pressão"
-              value={weatherData.pressure.value.toFixed(1)}
-              unit={weatherData.pressure.unit}
-              icon={        <FontAwesomeIcon size={'5x'} color='black' icon={faGaugeHigh} />}
-              type="pressure"
-            />
-            <WeatherCard
-              title="Radiação Solar"
-              value={weatherData.solarRadiation.value.toFixed(1)}
-              unit={weatherData.solarRadiation.unit}
-              icon={  <FontAwesomeIcon size={'5x'} color='black' icon={faSun} />}
-              type="solarRadiation"
-            />
-            <WeatherCard
-              title="Velocidade do Vento"
-              value={`${weatherData.wind.value.toFixed(1)} ` }
-              unit={weatherData.wind.unit}
-              icon={            <FontAwesomeIcon size={'5x'} color='black' icon={faWind} />}
-              type="windSpeed"
-            />
-            <WeatherCard
-              title="Ondas"
-              value={windDirection}
-              unit="°"
-              icon={   <FontAwesomeIcon size={'5x'} color='black' icon={faWater} />}
-              type="windDirection"
+            title="Volume da Barragem"
+            value={barragemData}
+            unit="%"
+            icon={<FontAwesomeIcon size={'5x'} color='black' icon={faWater} />}
+            type="dam"
             />
           </div>
-          <div className="barragem-status">
-            {barragemData ? (
-              <div>
-                <p>Volume Útil da Barragem: {barragemData} %</p>
-              </div>
-            ) : (
-              <p>Carregando dados da barragem...</p>
-            )}
-        </div>
-      </div>      
+        )}
+      </div>
     </>
   );
 };

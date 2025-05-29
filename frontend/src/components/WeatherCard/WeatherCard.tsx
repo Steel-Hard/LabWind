@@ -6,7 +6,7 @@ interface WeatherCardProps {
   value: string | number;
   unit: string;
   icon: React.JSX.Element;
-  type: 'temperature' | 'humidity' | 'pressure' | 'solarRadiation' | 'windSpeed' | 'windDirection';
+  type: 'temperature' | 'humidity' | 'pressure' | 'solarRadiation' | 'windSpeed' | 'windDirection' | 'dam';
 }
 
 type ColorScheme = {
@@ -22,37 +22,43 @@ type ColorSchemes = {
   solarRadiation: ColorScheme;
   windSpeed: ColorScheme;
   windDirection: { default: string };
+  dam: ColorScheme;
 };
 
 const getCardColor = (type: string, value: number): string => {
   const colors: ColorSchemes = {
     temperature: {
-      low: '#3B82F6',    // Azul claro
-      medium: '#FBBF24', // Amarelo
-      high: '#B91C1C'    // Vermelho escuro
+      low: '#FF7F50',   // Coral suave
+      medium: '#FF7F50',
+      high: '#FF7F50'
     },
     humidity: {
-      low: '#FDE68A',    // Bege seco
-      medium: '#60A5FA', // Azul claro
-      high: '#1E40AF'    // Azul escuro
+      low: '#5DADE2',   // Azul serenity
+      medium: '#5DADE2',
+      high: '#5DADE2'
     },
     pressure: {
-      low: '#DC2626',    // Vermelho
-      medium: '#86EFAC', // Verde claro
-      high: '#065F46'    // Verde escuro
+      low: '#85929E',   // Cinza azulado
+      medium: '#85929E',
+      high: '#85929E'
     },
     solarRadiation: {
-      low: '#D1D5DB',    // Cinza
-      medium: '#FACC15', // Amarelo
-      high: '#EA580C'    // Laranja
+      low: '#F7DC6F',   // Amarelo suave
+      medium: '#F7DC6F',
+      high: '#F7DC6F'
     },
     windSpeed: {
-      low: '#E5E7EB',    // Cinza claro
-      medium: '#22D3EE', // Ciano
-      high: '#0E7490'    // Azul petróleo
+      low: '#58D68D',   // Verde menta
+      medium: '#58D68D',
+      high: '#58D68D'
     },
     windDirection: {
-      default: '#F3F4F6' // Neutro
+      default: '#AF7AC5' // Lilás claro
+    },
+    dam: {
+      low: '#DC2626',    // Vermelho (baixo volume)
+      medium: '#FACC15', // Amarelo (volume médio)
+      high: '#22C55E'    // Verde (volume alto)
     }
   };
 
@@ -61,7 +67,8 @@ const getCardColor = (type: string, value: number): string => {
     humidity: { low: 30, high: 70 },
     pressure: { low: 980, high: 1020 },
     solarRadiation: { low: 200, high: 800 },
-    windSpeed: { low: 5, high: 15 }
+    windSpeed: { low: 5, high: 15 },
+    dam: { low: 30, high: 70 }
   };
 
   if (type === 'windDirection') {
@@ -70,23 +77,54 @@ const getCardColor = (type: string, value: number): string => {
 
   const threshold = thresholds[type as keyof typeof thresholds];
   const colorScheme = colors[type as keyof typeof colors] as ColorScheme;
-  
+
   if (value <= threshold.low) return colorScheme.low;
   if (value >= threshold.high) return colorScheme.high;
   return colorScheme.medium;
 };
 
-// const getWindDirectionIcon = (degrees: number): string => {
-//   const directions = ['↑', '↗️', '→', '↘️', '↓', '↙️', '←', '↖️'];
-//   const index = Math.round(degrees / 45) % 8;
-//   return directions[index];
-// };
+const Wave = ({ percent, color }: { percent: number; color: string }) => {
+  const y = 100 - (percent / 100) * 100;
+
+  return (
+    <svg className="wave-svg" viewBox="0 0 200 100" preserveAspectRatio="none">
+      <path
+        className="wave-path"
+        d={`
+          M0,${y}
+          Q25,${y - 8} 50,${y}
+          T100,${y}
+          T150,${y}
+          T200,${y}
+          V100 H0 Z
+        `}
+      />
+    </svg>
+  );
+};
 
 const WeatherCard: React.FC<WeatherCardProps> = ({ title, value, unit, icon, type }) => {
   const numericValue = typeof value === 'string' ? parseFloat(value) : value;
   const backgroundColor = getCardColor(type, numericValue);
-  // const isWindDirection = type === 'windDirection';
-  // const displayIcon = isWindDirection ? getWindDirectionIcon(numericValue) : icon;
+
+  if (type === 'dam') {
+    return (
+      <div className="dam-card-full">
+        <div className="dam-content">
+          <div className="wave-container">
+            <Wave percent={numericValue} color={backgroundColor} />
+          </div>
+          <div className="dam-info">
+            <div className="dam-value-big">
+              <span>{value}</span>
+              <span className="dam-unit">{unit}</span>
+            </div>
+            <div className="dam-title">{title}</div>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="weather-card" style={{ backgroundColor }}>
@@ -102,4 +140,4 @@ const WeatherCard: React.FC<WeatherCardProps> = ({ title, value, unit, icon, typ
   );
 };
 
-export default WeatherCard; 
+export default WeatherCard;
