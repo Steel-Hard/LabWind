@@ -56,11 +56,17 @@ function Landing() {
         </div>
         
    
-        <img 
-          className="absolute bottom-4 left-10 max-h-16 w-auto" 
-          src="/SH.png"
-          alt="Logo" 
-        />
+        <a
+      href="https://www.github.com/steel-hard"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <img
+        className="absolute bottom-4 left-10 max-h-16 w-auto cursor-pointer"
+        src="/SH.png"
+        alt="Logo"
+      />
+    </a>
       </div>
       
       
@@ -86,7 +92,21 @@ function Landing() {
           src="./furnas.png"
           alt="Furnas"
         />
+
+<a
+      href="https://www.github.com/steel-hard"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <img
+        className="bottom-4 max-h-16 w-auto cursor-pointer"
+        src="/SH.png"
+        alt="Logo"
+      />
+    </a>
       </div>
+
+
       </div>
     </>
   );
