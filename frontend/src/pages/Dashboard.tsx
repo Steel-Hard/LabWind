@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Header, Nav, WeatherCard } from '../components';
+import { Header, Nav, WeatherAlerts, WeatherCard } from '../components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faWind,
@@ -12,6 +12,7 @@ import {
 import { useState, useEffect } from 'react';
 import { WeatherData, getSimulatedWeatherData } from '../utils/simulatedWeather';
 import BarragemService from '../services/BarragemService';
+import WeatherAlertsMock from '../components/WheatherAlertsMock';
 
 const Dashboard: React.FC = () => {
   const [weatherData, setWeatherData] = useState<WeatherData>(getSimulatedWeatherData());
@@ -102,6 +103,9 @@ const Dashboard: React.FC = () => {
           </div>
         )}
       </div>
+
+      <WeatherAlertsMock/>
+      <WeatherAlerts/>
     </>
   );
 };

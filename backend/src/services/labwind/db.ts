@@ -18,5 +18,3 @@ const pool = mysql.createPool({
 });
 
 export default pool;
-
-//108.179.193.150

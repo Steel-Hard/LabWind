@@ -1,6 +1,7 @@
 import { RowDataPacket } from "mysql2";
 import pool from "../services/labwind/db";
 import { Request,Response } from "express";
+import { ISensorData } from "../types/interfaces/ISensorData";
 
 
 class LabwindDataController{
@@ -83,24 +84,51 @@ class LabwindDataController{
                 `SELECT * FROM sensor ORDER BY reading_time DESC LIMIT 1`
             );
     
-            const data = rows[0];
+            const data = rows[0] as ISensorData;
             if (!data) {
                 res.status(404).json({ error: "Nenhum dado encontrado" });
                 return;
             }
     
-            const alerts = [];
+            const alerts: string[] = [];
     
-            if (data.temp > 35) alerts.push("Temperatura acima de 35°C");
-            if (data.wind_rt > 15) alerts.push("Rajadas de vento fortes (> 15 m/s)");
-            if (data.hum < 20) alerts.push("Umidade muito baixa (< 20%)");
-            if (data.bar < 1000) alerts.push("Possível frente fria (pressão < 1000 hPa)");
+          
+            if (data.temp > 37) alerts.push("Calor extremo: temperatura acima de 37°C");
+            else if (data.temp < 5) alerts.push("Frio intenso: temperatura abaixo de 5°C");
+    
+       
+            if (data.hum < 20) alerts.push("Umidade crítica: abaixo de 20%");
+            else if (data.hum > 95) alerts.push("Alta umidade: acima de 95%");
+    
+            if (data.bar < 1000) alerts.push("Pressão atmosférica baixa: possível frente fria ou tempestade");
+    
+            
+            if (data.uv_level > 8) alerts.push("Radiação UV muito alta: risco à saúde");
+    
+         
+            if (data.wind_rt > 25) {
+                alerts.push("Vendaval perigoso: vento acima de 90 km/h");
+            } else if (data.wind_rt > 15) {
+                alerts.push("Vento forte: velocidade acima de 15 m/s");
+            }
+    
+           
+            const windDirections = [
+                "Norte", "Norte-Nordeste", "Nordeste", "Leste-Nordeste",
+                "Leste", "Leste-Sudeste", "Sudeste", "Sul-Sudeste",
+                "Sul", "Sul-Sudoeste", "Sudoeste", "Oeste-Sudoeste",
+                "Oeste", "Oeste-Noroeste", "Noroeste", "Norte-Noroeste"
+            ];
+            const dirIndex = Math.round(data.wind_dir_rt / 22.5) % 16;
+            const windDirection = windDirections[dirIndex];
+            alerts.push(`Direção do vento: ${windDirection}`);
     
             res.json({ timestamp: data.reading_time, alerts });
         } catch (error) {
             res.status(500).json({ error: "Erro ao verificar alertas", details: error });
         }
     }
+    
     
 
 }

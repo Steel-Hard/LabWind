@@ -3,7 +3,7 @@ import { Station, useLabwind } from "../../contexts/labwindContext";
 
 
 function Options() {
-  const { setStation, setDate, station, date } = useLabwind();
+  const { setStation, setDate,  date } = useLabwind();
 
   return (
     <div className="w-full flex flex-col md:flex-row md:justify-center gap-3 md:items-center mt-20  space-y-4 md:space-y-0">
@@ -16,7 +16,7 @@ function Options() {
           <select
             id="estacao"
             className="w-full p-2 rounded bg-white text-black shadow-sm cursor-pointer"
-            defaultValue={station}
+            defaultValue=""
             onChange={e => setStation(e.target.value as Station)} 
           >
             <option value="" disabled>Selecione uma estação</option>
