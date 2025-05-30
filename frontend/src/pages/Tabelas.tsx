@@ -1,9 +1,13 @@
 import {converteDate} from "../utils/data";
 import { Header, Nav, Options } from "../components";
 import {  useLabwind } from "../contexts/labwindContext";
+import Download from "../components/Download";
 
 export default function Tabelas() {
-  const { data } = useLabwind();
+  const { data} = useLabwind();
+
+
+
 
   return (
     <>
@@ -12,7 +16,8 @@ export default function Tabelas() {
         <Nav />
       </Header>
 
-      <Options estacoesSelector={true} date={true}/>
+
+      <Options/>
       <div className="w-full overflow-x-auto mt-10 ">
         <table className="min-w-[600px] w-full text-sm text-center rtl:text-center text-gray-500 dark:text-gray-400 border-collapse border border-gray-400">
           <thead className=" uppercase bg-gray-50  text-black font-light">
@@ -34,14 +39,17 @@ export default function Tabelas() {
           </thead>
           <tbody>
             {data && data.map((sensorData, index) =>{ 
-               const local = new Date(sensorData.reading_time);
-               const minutes = String(Math.floor(local.getUTCMinutes() / 10) * 10).padStart(2, "0");
+              const local = new Date(sensorData.reading_time);
+              const minutes = String(Math.floor(local.getUTCMinutes() / 10) * 10).padStart(2, "0");
               
               return (
-              <tr
-              className="odd:bg-white  even:bg-gray-50  dark:border-gray-700 border-gray-200"
-              key={index}
-              >
+                <>
+                <Download/>
+
+                <tr
+                className="odd:bg-white  even:bg-gray-50  dark:border-gray-700 border-gray-200"
+                key={index}
+                >
                 <td>{converteDate(local)}</td>
                 <td>{`${local.getHours()}:${minutes}`}</td>
                 <td>{sensorData.temp}</td>
@@ -57,10 +65,13 @@ export default function Tabelas() {
                 <td>{sensorData.wind_dir_avg}</td>
 
               </tr>
+            </>
             )})}
           </tbody>
         </table>
       </div>
+      
+   
     
     </>
   );

@@ -1,17 +1,14 @@
 import { Station, useLabwind } from "../../contexts/labwindContext";
 
-interface IOptions {
-  date?: boolean;
-  estacoesSelector?: boolean;
-}
 
-function Options({ date, estacoesSelector }: IOptions) {
-  const { setStation, setDate } = useLabwind();
+
+function Options() {
+  const { setStation, setDate, station, date } = useLabwind();
 
   return (
     <div className="w-full flex flex-col md:flex-row md:justify-center gap-3 md:items-center mt-20  space-y-4 md:space-y-0">
 
-      {estacoesSelector && (
+   
         <div className="flex flex-col p-4 items-start md:items-center space-y-2 md:space-y-0 w-full md:w-auto">
           <label htmlFor="estacao" className="text-lg font-semibold mb-1 text-white">
             Estação (Única)
@@ -19,7 +16,7 @@ function Options({ date, estacoesSelector }: IOptions) {
           <select
             id="estacao"
             className="w-full p-2 rounded bg-white text-black shadow-sm cursor-pointer"
-            defaultValue=""
+            defaultValue={station}
             onChange={e => setStation(e.target.value as Station)} 
           >
             <option value="" disabled>Selecione uma estação</option>
@@ -28,9 +25,8 @@ function Options({ date, estacoesSelector }: IOptions) {
             <option value="B">Simulada 2</option>
           </select>
         </div>
-      )}
+      
 
-      {date && (
         <div className="flex flex-col p-4 items-start md:items-center space-y-2 md:space-y-0 w-full md:w-auto">
           <label htmlFor="e-date" className="text-lg font-semibold mb-1 text-white">
             Data
@@ -38,11 +34,12 @@ function Options({ date, estacoesSelector }: IOptions) {
           <input
             type="date"
             id="e-date"
+            value={date}
             className="bg-white text-black border border-gray-300 rounded px-4 py-2 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition duration-200"
             onChange={e => setDate(e.target.value)}
           />
         </div>
-      )}
+   
     </div>
   );
 }
