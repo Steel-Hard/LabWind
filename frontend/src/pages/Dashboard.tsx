@@ -45,7 +45,7 @@ const Dashboard: React.FC = () => {
       </Header>
 
       <div className="page-container min-h-screen flex flex-col items-center p-4">
-        <div className="grid-container grid grid-cols-3 gap-10">
+      <div className="grid-container flex-1 flex items-center justify-center">
           <WeatherCard
             title="Temperatura"
             value={weatherData.temperature.value.toFixed(1)}
@@ -88,19 +88,19 @@ const Dashboard: React.FC = () => {
             icon={<FontAwesomeIcon size={'5x'} color='black' icon={faWater} />}
             type="windDirection"
           />
-          <div className="rounded-lg p-5 min-h-[200px]  bg-transparent"></div>
-          
-          {barragemData && (
-            <WeatherCard
-              title="Volume da Barragem"
-              value={barragemData}
-              unit="%"
-              icon={<FontAwesomeIcon size={'5x'} color='black' icon={faWater} />}
-              type="dam"
-            />
-          )}          
-          <div className="rounded-lg p-5 min-h-[200px] bg-transparent"></div>
         </div>
+
+        {barragemData && (
+         <div className="dam-card-container w-full flex justify-center mt-10">
+            <WeatherCard
+            title="Volume da Barragem"
+            value={barragemData}
+            unit="%"
+            icon={<FontAwesomeIcon size={'5x'} color='black' icon={faWater} />}
+            type="dam"
+            />
+          </div>
+        )}
       </div>
     </>
   );

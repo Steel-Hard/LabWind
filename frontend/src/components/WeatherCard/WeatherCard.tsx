@@ -7,7 +7,7 @@ interface WeatherCardProps {
   title: string;
   value: string | number;
   unit: string;
-  icon: React.ReactNode;
+  icon: React.JSX.Element;
   type: 'temperature' | 'humidity' | 'pressure' | 'solarRadiation' | 'windSpeed' | 'windDirection' | 'dam';
 }
 
@@ -50,9 +50,9 @@ const getCardColor = (type: string, value: number): string => {
       high: '#F7DC6F'
     },
     windSpeed: {
-      low: 'rgba(31, 44, 43, 0.36)',   // Verde menta
-      medium: 'rgba(31, 44, 43, 0.36)',
-      high: 'rgba(31, 44, 43, 0.36)'
+      low: '#58D68D',   // Verde menta
+      medium: '#58D68D',
+      high: '#58D68D'
     },
     windDirection: {
       default: '#AF7AC5' // Lilás claro
@@ -149,12 +149,14 @@ const WeatherCard: React.FC<WeatherCardProps> = ({ title, value, unit, icon, typ
   }
 
   return (
-    <div className={`weather-card ${type === 'dam' ? 'dam' : ''}`}>
-      <div className="card-icon">{icon}</div>
-      <div className="card-title">{title}</div>
-      <div className="flex items-center justify-center">
-        <span className="card-value">{value}</span>
-        <span className="card-unit">{unit}</span>
+    <div className="weather-card" style={{ backgroundColor }}>
+      <div className="weather-card-header">
+        <h3>{title}</h3>
+        {icon}
+      </div>
+      <div className="weather-card-content">
+        <span className="weather-value">{value}</span>
+        <span className="weather-unit">{unit}</span>
       </div>
     </div>
   );

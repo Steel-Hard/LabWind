@@ -24,29 +24,23 @@
 }
 
 .weather-card {
-  @apply bg-white rounded-lg p-5 min-h-[200px] shadow-md transition-transform duration-200 hover:-translate-y-[5px];
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  min-width: 200px;
+  min-height: 220px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
-
-.weather-card.dam {
-  @apply bg-white rounded-lg p-5 min-h-[200px] shadow-md transition-transform duration-200 hover:-translate-y-[5px];
+.weather-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
 }
-
-.card-title {
-  @apply text-2xl font-bold mb-4 text-gray-800;
-}
-
-.card-value {
-  @apply text-4xl font-bold text-gray-900;
-}
-
-.card-unit {
-  @apply text-xl text-gray-600 ml-2;
-}
-
-.card-icon {
-  @apply text-gray-700 mb-4;
-}
-
 .weather-card-header {
   display: flex;
   justify-content: space-between;
@@ -219,22 +213,6 @@
 
 /* Media queries para responsividade */
 @media (max-width: 1024px) {
-  .weather-card {
-    @apply min-h-[180px];
-  }
-  
-  .card-title {
-    @apply text-xl;
-  }
-  
-  .card-value {
-    @apply text-3xl;
-  }
-  
-  .card-unit {
-    @apply text-lg;
-  }
-  
   .dam-card-full {
     min-width: 200px;
     min-height: 200px;
@@ -255,22 +233,6 @@
 }
 
 @media (max-width: 768px) {
-  .weather-card {
-    @apply min-h-[160px];
-  }
-  
-  .card-title {
-    @apply text-lg;
-  }
-  
-  .card-value {
-    @apply text-2xl;
-  }
-  
-  .card-unit {
-    @apply text-base;
-  }
-  
   .dam-card-full {
     min-width: 180px;
     min-height: 180px;
@@ -295,22 +257,6 @@
 }
 
 @media (max-width: 480px) {
-  .weather-card {
-    @apply min-h-[140px];
-  }
-  
-  .card-title {
-    @apply text-base;
-  }
-  
-  .card-value {
-    @apply text-xl;
-  }
-  
-  .card-unit {
-    @apply text-sm;
-  }
-  
   .dam-card-full {
     min-width: 150px;
     min-height: 150px;

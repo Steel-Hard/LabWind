@@ -36,7 +36,7 @@ function Landing() {
            
             <div className="w-1/2 flex flex-col items-center justify-center">
               <div className="w-[80%] max-w-lg">
-                <p className="roboto-medium text-center text-4xl mb-10 text-black">
+                <p className="roboto-medium text-center text-2xl mb-10 text-black">
                   Solução tecnológica para monitoramento climático no Lago de
                   Furnas, oferecendo gráficos interativos e alertas em tempo real,
                   visando reduzir riscos para navegantes e comunidades locais.
