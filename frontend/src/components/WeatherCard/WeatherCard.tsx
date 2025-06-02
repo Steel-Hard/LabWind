@@ -50,9 +50,9 @@ const getCardColor = (type: string, value: number): string => {
       high: '#F7DC6F'
     },
     windSpeed: {
-      low: '#58D68D',   // Verde menta
-      medium: '#58D68D',
-      high: '#58D68D'
+      low: '#b0bec5',   // Verde menta
+      medium: '#b0bec5',
+      high: '#b0bec5'
     },
     windDirection: {
       default: '#AF7AC5' // Lilás claro
