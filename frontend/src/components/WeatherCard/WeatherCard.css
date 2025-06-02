@@ -49,9 +49,10 @@
 }
 .weather-card-header h3 {
   margin: 0;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   color: rgba(255, 255, 255, 0.9);
   font-weight: 500;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.18);
 }
 .weather-card-content {
   display: flex;
@@ -59,19 +60,33 @@
   gap: 0.5rem;
 }
 .weather-value {
-  font-size: 2.5rem;
-  font-weight: 600;
+  font-size: 3.5rem;
+  font-weight: 700;
   color: #ffffff;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  text-shadow: 0 2px 8px rgba(0,0,0,0.25);
 }
 .weather-unit {
-  font-size: 1rem;
-  color: rgba(255, 255, 255, 0.7);
-  margin-left: 0.25rem;
+  font-size: 1.5rem;
+  color: rgba(255, 255, 255, 0.85);
+  margin-left: 0.3rem;
 }
 .wind-direction-icon {
-  animation: rotate 20s linear infinite;
+  display: flex;
+  align-items: center;
 }
+
+.wind-arrow {
+  margin-left: 1rem;
+  transition: transform 0.5s ease;
+  transform-origin: center;
+  display: flex;
+  align-items: center;
+}
+
+.wind-direction-icon svg {
+  transform-origin: center;
+}
+
 @keyframes rotate {
   from { transform: rotate(0deg);}
   to { transform: rotate(360deg);}
@@ -150,7 +165,7 @@
   height: 100%;
 }
 .wave-path {
-  fill: rgba(255, 255, 255, 0.8);
+  fill: rgba(34, 99, 93, 0.8);
   animation: wave-move 6s linear infinite;
 }
 @keyframes wave-move {
@@ -162,6 +177,19 @@
   z-index: 4;
   text-align: right;
   padding-right: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  padding-top: 50px;
+  padding-bottom: 20px;
+  padding-left: 20px;
+}
+.dam-title {
+  font-size: 1.2rem;
+  color: #fff;
+  font-weight: 500;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.18);
 }
 .dam-value-big {
   font-size: 3.5rem;
@@ -178,13 +206,6 @@
   color: #fff;
   opacity: 0.85;
 }
-.dam-title {
-  font-size: 1.2rem;
-  color: #fff;
-  margin-top: 0.5rem;
-  font-weight: 500;
-  text-shadow: 0 2px 8px rgba(0,0,0,0.18);
-}
 @keyframes wave-animation {
   0% { background-position-x: 0;}
   100% { background-position-x: 200px;}
@@ -193,8 +214,9 @@
 /* Media queries para responsividade */
 @media (max-width: 1024px) {
   .dam-card-full {
-    min-width: 300px;
-    min-height: 180px;
+    min-width: 200px;
+    min-height: 200px;
+    max-width: 100%;
   }
   
   .dam-value-big {
@@ -204,12 +226,16 @@
   .dam-unit {
     font-size: 1.3rem;
   }
+
+  .dam-title {
+    font-size: 1.1rem;
+  }
 }
 
 @media (max-width: 768px) {
   .dam-card-full {
-    min-width: 250px;
-    min-height: 150px;
+    min-width: 180px;
+    min-height: 180px;
   }
   
   .dam-value-big {
@@ -223,12 +249,17 @@
   .dam-title {
     font-size: 1rem;
   }
+
+  .dam-info {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
 }
 
 @media (max-width: 480px) {
   .dam-card-full {
-    min-width: 200px;
-    min-height: 120px;
+    min-width: 150px;
+    min-height: 150px;
   }
   
   .dam-value-big {
@@ -245,5 +276,7 @@
   
   .dam-info {
     padding-right: 10px;
+    padding-left: 10px;
+    padding-top: 30px;
   }
 }

@@ -61,7 +61,7 @@ const Dashboard: React.FC = () => {
             type="humidity"
           />
           <WeatherCard
-            title="Pressão"
+            title="Pressão Atmosférica"
             value={weatherData.pressure.value.toFixed(1)}
             unit={weatherData.pressure.unit}
             icon={<FontAwesomeIcon size={'5x'} color='black' icon={faGaugeHigh} />}
@@ -82,7 +82,7 @@ const Dashboard: React.FC = () => {
             type="windSpeed"
           />
           <WeatherCard
-            title="Ondas"
+            title="Direção do Vento"
             value={windDirection}
             unit="°"
             icon={<FontAwesomeIcon size={'5x'} color='black' icon={faWater} />}
