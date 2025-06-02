@@ -45,8 +45,9 @@ export default function Download() {
   return (
     <>
       <button
+      title="download dados"
         onClick={validateToken}
-        className="z-40 fixed bottom-5 right-5 bg-gray-300 hover:cursor-pointer h-10 w-10 rounded-full flex justify-center items-center"
+        className="z-40 fixed bottom-5 right-5 bg-green-400 hover:cursor-pointer h-10 w-10 rounded-full flex justify-center items-center"
         aria-label="Download"
       >
         <FontAwesomeIcon color="black" icon={faDownload} />

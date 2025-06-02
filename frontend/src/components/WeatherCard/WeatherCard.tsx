@@ -1,5 +1,7 @@
 import React from 'react';
 import './WeatherCard.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faWind, faArrowUp } from '@fortawesome/free-solid-svg-icons';
 
 interface WeatherCardProps {
   title: string;
@@ -48,9 +50,9 @@ const getCardColor = (type: string, value: number): string => {
       high: '#F7DC6F'
     },
     windSpeed: {
-      low: '#58D68D',   // Verde menta
-      medium: '#58D68D',
-      high: '#58D68D'
+      low: '#b0bec5',   // Verde menta
+      medium: '#b0bec5',
+      high: '#b0bec5'
     },
     windDirection: {
       default: '#AF7AC5' // Lilás claro
@@ -115,11 +117,31 @@ const WeatherCard: React.FC<WeatherCardProps> = ({ title, value, unit, icon, typ
             <Wave percent={numericValue} color={backgroundColor} />
           </div>
           <div className="dam-info">
+            <div className="dam-title">{title}</div>
             <div className="dam-value-big">
               <span>{value}</span>
               <span className="dam-unit">{unit}</span>
             </div>
-            <div className="dam-title">{title}</div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (type === 'windDirection') {
+    return (
+      <div className="weather-card" style={{ backgroundColor }}>
+        <div className="weather-card-header">
+          <h3>{title}</h3>
+          <div className="wind-direction-icon">
+            <FontAwesomeIcon size={'5x'} color='black' icon={faWind} />
+          </div>
+        </div>
+        <div className="weather-card-content">
+          <span className="weather-value">{value}</span>
+          <span className="weather-unit">{unit}</span>
+          <div className="wind-arrow" style={{ transform: `rotate(${value}deg)` }}>
+            <FontAwesomeIcon size={'2x'} color='white' icon={faArrowUp} />
           </div>
         </div>
       </div>
