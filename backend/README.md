@@ -2,7 +2,7 @@
 | --------------------------------- | ------ | ---------------------------------------- |
 | `/signup` | POST    | Cadastrar novo usuário                 |
 | `/signin`                    | POST   | Obter token de acesso                          |
-| `/updatePassword`                | put    | Atualizar senha            |
+| `/updatePassword`                | PUT    | Atualizar senha            |
 
 
 

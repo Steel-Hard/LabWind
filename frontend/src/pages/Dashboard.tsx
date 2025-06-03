@@ -7,24 +7,29 @@ import {
   faWater,
   faSun,
   faGaugeHigh,
-  faDroplet
+  faDroplet,
+
 } from '@fortawesome/free-solid-svg-icons';
 import { useState, useEffect } from 'react';
-import { WeatherData, getSimulatedWeatherData } from '../utils/simulatedWeather';
 import BarragemService from '../services/BarragemService';
-import WeatherAlertsMock from '../components/WheatherAlertsMock';
+import { ISensorData } from '../types';
+import LabwindDataService from '../services/LabwindDataService';
+import "./styles/Dashboard.css"
 
 const Dashboard: React.FC = () => {
-  const [weatherData, setWeatherData] = useState<WeatherData>(getSimulatedWeatherData());
-  const [windDirection, setWindDirection] = useState(0);
+  const [sensor, setSensor] = useState<ISensorData>();
   const [barragemData, setBarragemData] = useState<string | any>();
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setWeatherData(getSimulatedWeatherData());
-      setWindDirection(Math.floor(Math.random() * 360));
-    }, 5000);
-    return () => clearInterval(interval);
+    const fetchSensorData = async () => {
+      try {
+        const data = await LabwindDataService.fetchLastOccurrence();
+        setSensor(data);
+      } catch (error) {
+        console.error("Erro ao buscar dados do sensor:", error);
+      }
+    };
+    fetchSensorData();
   }, []);
 
   useEffect(() => {
@@ -49,44 +54,44 @@ const Dashboard: React.FC = () => {
         <div className="grid-container grid grid-cols-3 gap-8 w-full max-w-[1800px]">
           <WeatherCard
             title="Temperatura"
-            value={weatherData.temperature.value.toFixed(1)}
-            unit={weatherData.temperature.unit}
+            value={sensor?.temp !== undefined ? sensor.temp : '--'}
+            unit="°C"
             icon={<FontAwesomeIcon size={'5x'} color='black' icon={faTemperatureHigh} />}
             type="temperature"
           />
           <WeatherCard
             title="Umidade"
-            value={weatherData.humidity.value.toFixed(1)}
-            unit={weatherData.humidity.unit}
+            value={sensor?.hum !== undefined ? sensor.hum : '--'}
+            unit="%"
             icon={<FontAwesomeIcon size={'5x'} color='black' icon={faDroplet} />}
             type="humidity"
           />
           <WeatherCard
             title="Pressão Atmosférica"
-            value={weatherData.pressure.value.toFixed(1)}
-            unit={weatherData.pressure.unit}
+            value={sensor?.bar !== undefined ? sensor.bar : '--'}
+            unit="hPa"
             icon={<FontAwesomeIcon size={'5x'} color='black' icon={faGaugeHigh} />}
             type="pressure"
           />
           <WeatherCard
             title="Radiação Solar"
-            value={weatherData.solarRadiation.value.toFixed(1)}
-            unit={weatherData.solarRadiation.unit}
+            value={sensor?.uv_level !== undefined ? sensor.uv_level : '--'}
+            unit="W/m²"
             icon={<FontAwesomeIcon size={'5x'} color='black' icon={faSun} />}
             type="solarRadiation"
           />
           <WeatherCard
             title="Velocidade do Vento"
-            value={`${weatherData.wind.value.toFixed(1)} `}
-            unit={weatherData.wind.unit}
+            value={sensor?.wind_rt !== undefined ? sensor.wind_rt : '--'}
+            unit="m/s"
             icon={<FontAwesomeIcon size={'5x'} color='black' icon={faWind} />}
             type="windSpeed"
           />
           <WeatherCard
             title="Direção do Vento"
-            value={windDirection}
+            value={sensor?.wind_dir_rt !== undefined ? sensor.wind_dir_rt : '--'}
             unit="°"
-            icon={<FontAwesomeIcon size={'5x'} color='black' icon={faWater} />}
+            icon={<FontAwesomeIcon size={'5x'} color='black' icon={faWind} />}
             type="windDirection"
           />
           
@@ -108,7 +113,7 @@ const Dashboard: React.FC = () => {
         </div>
       </div>
 
-      <WeatherAlertsMock/>
+
       <WeatherAlerts/>
     </>
   );
