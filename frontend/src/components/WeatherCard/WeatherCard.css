@@ -232,10 +232,6 @@
 }
 
 @media (max-width: 768px) {
-  .dam-card-full {
-    min-width: 180px;
-    min-height: 180px;
-  }
   
   .dam-value-big {
     font-size: 2.5rem;
@@ -256,10 +252,6 @@
 }
 
 @media (max-width: 480px) {
-  .dam-card-full {
-    min-width: 150px;
-    min-height: 150px;
-  }
   
   .dam-value-big {
     font-size: 2rem;
