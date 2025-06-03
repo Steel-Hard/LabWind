@@ -9,11 +9,9 @@ import {
   faGaugeHigh,
   faDroplet
 } from '@fortawesome/free-solid-svg-icons';
+import LabwindDataService from '../../services/LabwindDataService';
+import { WeatherAlertData } from '../../types';
 
-interface WeatherAlertData {
-  timestamp: string;
-  alerts: string[];
-}
 
 const getAlertIcon = (message: string) => {
   const msg = message.toLowerCase();
@@ -30,15 +28,24 @@ const WeatherAlerts: React.FC = () => {
   const [openAlerts, setOpenAlerts] = useState<{ id: number; msg: string }[]>([]);
 
   useEffect(() => {
-    fetch('/api/check-alerts') 
-      .then((res) => res.json())
-      .then((data: WeatherAlertData) => {
+    const fetchWeatherAlerts = async () => {
+      try {
+        
+        const data = await LabwindDataService.checkAlerts();
+        
         setAlertData(data);
-        if (data.alerts && data.alerts.length > 0) {
-          setOpenAlerts(data.alerts.map((msg, idx) => ({ id: idx, msg })));
-        }
-      })
-      .catch((err) => console.error('Erro ao buscar alertas:', err));
+
+        const alerts = data.alerts.map((msg, index) => ({
+          id: index,
+          msg,
+        }));
+        setOpenAlerts(alerts);
+      } catch (error) {
+        console.error("Error fetching weather alerts:", error);
+      }
+    };
+
+    fetchWeatherAlerts();
   }, []);
 
   const handleClose = (id: number) => {
@@ -59,7 +66,7 @@ const WeatherAlerts: React.FC = () => {
         >
           <Alert
             severity="warning"
-            icon={<FontAwesomeIcon icon={getAlertIcon(msg)} />}
+            icon={<FontAwesomeIcon icon={getAlertIcon(msg)} color="#b45309" />} // laranja escuro
             action={
               <IconButton
                 aria-label="close"
@@ -71,8 +78,15 @@ const WeatherAlerts: React.FC = () => {
               </IconButton>
             }
             className="w-96 h-32 max-h-32 overflow-auto"
+            sx={{
+              backgroundColor: '#FEF3C7', 
+              color: '#92400e', 
+              border: '2px solid #F59E42', 
+              boxShadow: '0 4px 16px 0 rgba(255, 193, 7, 0.2)',
+              fontWeight: 'bold',
+            }}
           >
-            <AlertTitle className="whitespace-nowrap">Alerta Meteorológico</AlertTitle>
+            <AlertTitle className="whitespace-nowrap" style={{ color: '#b45309', fontWeight: 'bold' }}>Alerta Meteorológico</AlertTitle>
             <div className="overflow-y-auto h-16">
               {msg}
             </div>

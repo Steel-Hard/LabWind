@@ -14,3 +14,8 @@ export interface ISensorData {
     wind_dir_avg: number;
     estacao: string;
 }
+
+export interface WeatherAlertData {
+  timestamp: string;
+  alerts: string[];
+}

@@ -1,7 +1,7 @@
 import React from 'react';
 import './WeatherCard.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faWind, faArrowUp } from '@fortawesome/free-solid-svg-icons';
+import {  faArrowUp } from '@fortawesome/free-solid-svg-icons';
 
 interface WeatherCardProps {
   title: string;
@@ -85,7 +85,7 @@ const getCardColor = (type: string, value: number): string => {
   return colorScheme.medium;
 };
 
-const Wave = ({ percent, color }: { percent: number; color: string }) => {
+const Wave = ({ percent }: { percent: number; color: string }) => {
   const y = 100 - (percent / 100) * 100;
 
   return (
@@ -117,10 +117,13 @@ const WeatherCard: React.FC<WeatherCardProps> = ({ title, value, unit, icon, typ
             <Wave percent={numericValue} color={backgroundColor} />
           </div>
           <div className="dam-info">
+            <div className='dam-header'>
             <div className="dam-title">{title}</div>
-            <div className="dam-value-big">
-              <span>{value}</span>
-              <span className="dam-unit">{unit}</span>
+            {icon}
+            </div>
+            <div className="weather-card-content">
+              <span className='weather-value'>{value}</span>
+              <span className="weather-unit">{unit}</span>
             </div>
           </div>
         </div>
@@ -133,9 +136,7 @@ const WeatherCard: React.FC<WeatherCardProps> = ({ title, value, unit, icon, typ
       <div className="weather-card" style={{ backgroundColor }}>
         <div className="weather-card-header">
           <h3>{title}</h3>
-          <div className="wind-direction-icon">
-            <FontAwesomeIcon size={'5x'} color='black' icon={faWind} />
-          </div>
+          {icon}
         </div>
         <div className="weather-card-content">
           <span className="weather-value">{value}</span>
