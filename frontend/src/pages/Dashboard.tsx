@@ -12,13 +12,15 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { useState, useEffect } from 'react';
 import BarragemService from '../services/BarragemService';
-import { ISensorData } from '../types';
+import { ISensorData, IWeatherData } from '../types';
 import LabwindDataService from '../services/LabwindDataService';
 import "./styles/Dashboard.css"
+import OpenWeatherService from '../services/OpenWeather';
 
 const Dashboard: React.FC = () => {
   const [sensor, setSensor] = useState<ISensorData>();
   const [barragemData, setBarragemData] = useState<string | any>();
+  const [previsao, setPrevisao] = useState<IWeatherData>();
 
   useEffect(() => {
     const fetchSensorData = async () => {
@@ -43,6 +45,15 @@ const Dashboard: React.FC = () => {
     };
     fetchBarragemData();
   }, []);
+
+  useEffect(() => {
+    const fetchPrevisao = async () => {
+        const response = await OpenWeatherService.getPrevisao() ;
+        setPrevisao(response);
+      
+    }
+    fetchPrevisao()
+  }, [])
 
   return (
     <>
@@ -95,9 +106,14 @@ const Dashboard: React.FC = () => {
             type="windDirection"
           />
           
-          <div className="weather-card bg-white rounded-lg shadow-md p-4 flex items-center justify-center min-h-[220px] min-w-[400px]">
-            <span className="text-gray-400">Card Vazio</span>
-          </div>
+          <WeatherCard
+            title="Previsão do tempo"
+            value={previsao?.weather !== undefined ? previsao.weather[0].description: '--'}
+            icon={<FontAwesomeIcon size={'5x'} color='black' icon={faWind} />}
+            type="previsao"
+            espValue={previsao?.weather[0].main}
+          />
+
           {barragemData && (
             <WeatherCard
               title="Volume da Barragem"
