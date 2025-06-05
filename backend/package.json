@@ -6,7 +6,11 @@
     "start": "ts-node ./src/index.ts",
     "dev": "ts-node-dev ./src/index.ts",
     "create": "npx ts-node ./src/config/index.ts",
-    "test-db": "npx ts-node ./src/services/labwind/index.ts"
+    "backup": "npx ts-node ./src/config/backup.ts",
+    "backup-last": "npx ts-node ./src/config/backupLastData.ts",
+    "test-db": "npx ts-node ./src/services/labwind/index.ts",
+    "build": "npx tsc",
+    "start:prod": "node ./dist/index.js"
   },
   "keywords": [],
   "author": "",

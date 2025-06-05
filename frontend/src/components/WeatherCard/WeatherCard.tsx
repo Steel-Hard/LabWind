@@ -130,13 +130,7 @@ const WeatherCard: React.FC<WeatherCardProps> = ({
     );
   }
 
-  if (type === "map"){
-    return(
-      <div className="weather-card" style={{ backgroundColor }}>
-          {/* colocar o mapa */}
-      </div>
-    )
-  }
+
 
   return (
     <div className="weather-card" style={{ backgroundColor }}>

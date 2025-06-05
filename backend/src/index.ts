@@ -7,7 +7,9 @@ import cors from "cors"
 dotenv.config()
 
 const PORT = process.env.PORT || 3000;
-const MONGODB_URI= "mongodb://localhost:27017/steelhard"
+
+
+const MONGODB_URI=  process.env.MONGODB_URL || "mongodb://localhost:27017/steelhard"
 
 mongo.connect(MONGODB_URI, { serverSelectionTimeoutMS: 30000 })
     .then(() => console.log("mongodb conectado"))

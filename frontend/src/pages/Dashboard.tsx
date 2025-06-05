@@ -17,13 +17,13 @@ import "./styles/Dashboard.css";
 import OpenWeatherService from "../services/OpenWeather";
 import "leaflet/dist/leaflet.css";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
-import "leaflet/dist/leaflet.css";
+import { LatLngExpression } from "leaflet";
 
 const Dashboard: React.FC = () => {
   const [sensor, setSensor] = useState<ISensorData>();
   const [barragemData, setBarragemData] = useState<string | any>();
   const [previsao, setPrevisao] = useState<IWeatherData>();
-  const position: [number, number] = [-21.026146884566906, -46.13282320900263];
+  const position: LatLngExpression = [-21.026146884566906, -46.13282320900263];
 
   useEffect(() => {
     const fetchSensorData = async () => {
@@ -141,25 +141,22 @@ const Dashboard: React.FC = () => {
               type="dam"
             />
           )}
-<div className="weather-card bg-white rounded-lg shadow-md p-4 flex flex-col min-h-[220px] min-w-[400px]">
-  <div className="flex-grow w-full h-full">
-    <MapContainer
-      center={position}
-      zoom={8}
-      scrollWheelZoom={true}
-      style={{ height: "100%", width: "100%" }}
-    >
-      <TileLayer
-        attribution=""
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-      />
-      <Marker position={position}>
-        <Popup>Represa de Furnas</Popup>
-      </Marker>
-    </MapContainer>
-  </div>
-</div>
-
+          <div className="weather-card map-card">
+            <MapContainer
+              center={position}
+              zoom={10}
+              scrollWheelZoom={true}
+              style={{ width: "100%", height: "100%" }}
+            >
+              <TileLayer
+                attribution=""
+                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+              />
+              <Marker position={position}>
+                <Popup>Represa de Furnas</Popup>
+              </Marker>
+            </MapContainer>
+          </div>
         </div>
       </div>
 

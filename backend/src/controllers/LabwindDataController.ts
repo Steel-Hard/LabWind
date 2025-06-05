@@ -28,6 +28,19 @@ class LabwindDataController {
     }
   }
 
+  public async findAll(req: Request, res: Response): Promise<void> {
+    try {
+      const [rows] = await pool.query<RowDataPacket[]>(
+        "SELECT * FROM Sensor ORDER BY reading_time ASC"
+      );
+      res.status(200).json(rows);
+    } catch (error) {
+      res
+        .status(500)
+        .json({ error: "Erro ao buscar todos os registros", details: error });
+    }
+  }
+
   public async findLastOcurency(req: Request, res: Response): Promise<void> {
     try {
       const [rows] = await pool.query<RowDataPacket[]>(
@@ -50,7 +63,7 @@ class LabwindDataController {
                     MAX(wind_rt) AS max_wind,
                     MAX(uv_level) AS max_uv,
                     MAX(hum) AS max_humidity
-                FROM sensor
+                FROM Sensor
             `);
       res.json(rows[0]);
     } catch (error) {
@@ -111,7 +124,7 @@ class LabwindDataController {
           "Pressão atmosférica baixa: possível frente fria ou tempestade"
         );
 
-      const uv_irradiance = data.uv_level; 
+      const uv_irradiance = data.uv_level;
 
       const uv_lv = uv_irradiance / 0.025;
 
@@ -162,6 +175,24 @@ class LabwindDataController {
       res
         .status(500)
         .json({ error: "Erro ao verificar alertas", details: error });
+    }
+  }
+
+  public async findAllAfterDateTime(req: Request, res: Response): Promise<void> {
+    const { datetime } = req.query;
+    if (!datetime) {
+      res.status(400).json({ error: "Parâmetro 'datetime' é obrigatório (YYYY-MM-DD HH:mm:ss)" });
+      return;
+    }
+
+    try {
+      const [rows] = await pool.query<RowDataPacket[]>(
+        "SELECT * FROM Sensor WHERE reading_time > ? ORDER BY reading_time ASC",
+        [datetime]
+      );
+      res.status(200).json(rows);
+    } catch (error) {
+      res.status(500).json({ error: "Erro ao buscar registros após a data/hora", details: error });
     }
   }
 }

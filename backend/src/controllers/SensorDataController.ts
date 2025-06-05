@@ -119,6 +119,19 @@ class SensorDataController {
       res.status(500).json({ message: "Erro ao deletar dado", error });
     }
   }
+
+  async findLastReadingbyEstacao(req:Request, res: Response): Promise<void> {
+    const {estacao} = req.params;
+    try {
+      const data = await SensorDataModel.findOne({ estacao: estacao })
+        .sort({ reading_time: -1 })
+        .limit(1);
+      res.status(200).json(data);
+    } catch (error) {
+      res.status(401).json("Erro ao buscar a última leitura:" + error);
+
+    }
+  }
 }
 
 export default new SensorDataController();
