@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import UserService from "../services/UserService";
 
 const Login: React.FC = () => {
   const [email, setEmail] = useState("");
@@ -11,28 +12,15 @@ const Login: React.FC = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch("http://localhost:3000/users/signin/", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          email,
-          password: senha,
-        }),
-      });
+      const data = await UserService.signin(email, senha);
 
-      if (!response.ok) {
-        const data = await response.json();
-        setErro(data.message || "Erro ao fazer login");
-        return;
+      if (typeof data === "object" && data !== null && "token" in data) {
+        const token = (data as { token: string }).token;
+        sessionStorage.setItem("token", token);
+        navigate("/dashboard");
+      } else {
+        setErro("Resposta inesperada do servidor.");
       }
-
-      const data = await response.json();
-      const token = data.token;
-
-      sessionStorage.setItem("token", token);
-      navigate("/dashboard");
     } catch (err) {
       setErro(`Erro na comunicação com o servidor. Tente novamente. ${err}`);
     }
