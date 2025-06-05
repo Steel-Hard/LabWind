@@ -1,54 +1,47 @@
-# React + TypeScript + Vite
+# LabWind Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este é o frontend do projeto **LabWind**, um painel meteorológico moderno e responsivo para visualização de dados ambientais, desenvolvido em React + TypeScript.
 
-Currently, two official plugins are available:
+## Funcionalidades
+- Visualização em tempo real de dados de sensores meteorológicos (temperatura, umidade, pressão, radiação solar, vento, etc.)
+- Cards dinâmicos e responsivos para cada tipo de dado
+- Alerta meteorológico em destaque
+- Visualização do volume da barragem com animação
+- Mapa interativo com localização da represa
+- Previsão do tempo integrada
+- Interface moderna, responsiva e personalizável
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Tecnologias Utilizadas
+- [React](https://react.dev/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Vite](https://vitejs.dev/) (build tool)
+- [React Leaflet](https://react-leaflet.js.org/) (mapas)
+- [FontAwesome](https://fontawesome.com/) (ícones)
+- [Material UI](https://mui.com/) (alertas)
+- [Tailwind CSS](https://tailwindcss.com/) (alguns utilitários)
 
-## Expanding the ESLint configuration
+## Estrutura de Pastas
+- `src/components/` — Componentes reutilizáveis (cards, alertas, navegação, etc.)
+- `src/pages/` — Páginas principais do app (Dashboard, Login, etc.)
+- `src/services/` — Serviços para integração com APIs e backend
+- `src/types/` — Tipos TypeScript compartilhados
+- `src/utils/` — Utilitários e helpers
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Como rodar o projeto
+1. Instale as dependências:
+   ```sh
+   npm install
+   ```
+2. Rode o projeto em modo desenvolvimento:
+   ```sh
+   npm run dev
+   ```
+3. Acesse em [http://localhost:5173](http://localhost:5173)
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## Configuração
+- As URLs das APIs e serviços estão configuradas nos arquivos em `src/services/`.
+- Para customizar estilos, edite os arquivos em `src/components/WeatherCard/WeatherCard.css` e `src/styles/`.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+Projeto desenvolvido por Equipe STEELHARD.

@@ -4,6 +4,7 @@ import  sensorDataController  from '../controllers/SensorDataController';
 const router = Router();
 
 router.post('/', (req, res) => sensorDataController.create(req, res));
+router.get("/last/:estacao", (req, res) => sensorDataController.findLastReadingbyEstacao(req, res));
 router.get('/:date/:estacao', (req, res) => sensorDataController.getByDateAndEstacao(req, res));
 router.get('/:date', (req,res) => sensorDataController.getByData(req,res));
 router.get('/:id', (req, res) => sensorDataController.getById(req, res));

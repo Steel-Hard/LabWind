@@ -16,13 +16,6 @@
   padding: 2rem;
 }
 
-.dam-card-container {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  margin-top: 1rem;
-}
-
 .weather-card {
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
@@ -30,8 +23,8 @@
   padding: 1.5rem;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
-  min-width: 200px;
-  min-height: 220px;
+  min-width: 220px;
+  min-height: 260px;
   border: 1px solid rgba(255, 255, 255, 0.1);
   display: flex;
   flex-direction: column;
@@ -60,8 +53,8 @@
   gap: 0.5rem;
 }
 .weather-value {
-  font-size: 4rem;
-  font-weight: 700;
+  font-size: 3rem;
+  font-weight: 800;
   color: #ffffff;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
@@ -99,54 +92,26 @@
   box-shadow: 0 4px 6px rgba(0,0,0,0.1);
   overflow: hidden;
   display: flex;
-  align-items: center;
   justify-content: center;
   transition: box-shadow 0.3s, transform 0.3s;
-  background-color: #7FDBFF;
   margin: 0 auto;
   padding: 0;
   width: 100%;
   max-width: 800px;
 }
 .dam-card-full:hover {
-  box-shadow: 0 8px 16px rgba(26, 188, 156, 0.3);
+  box-shadow: 0 8px 16px rgba(56, 26, 188, 0.164);
   transform: translateY(-5px);
 }
 .dam-content {
-  width: 100%;
-  height: 100%;
+  
   display: flex;
+  flex: 1;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
   position: relative;
   z-index: 2;
-}
-.dam-battery {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  background: linear-gradient(180deg, rgba(26, 188, 156, 0.8) 0%, rgba(26, 188, 156, 1) 50%, rgba(26, 188, 156, 0.8) 100%);
-  transition: height 0.5s ease-in-out;
-  z-index: 3;
-  border-radius: 0 0 20px 20px;
-  overflow: hidden;
-  display: flex;
-  align-items: flex-end;
-}
-.dam-wave {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background: url('data:image/svg+xml;utf8,<svg width=\"100%25\" height=\"100%25\" viewBox=\"0 0 200 40\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M0 30 Q 50 40 100 30 T 200 30 V40 H0V30Z\" fill=\"%23e9ecef\" fill-opacity=\"0.9\"/></svg>') repeat-x;
-  background-size: 200px 150%;
-  opacity: 1;
-  animation: wave-animation 2s linear infinite;
-  z-index: 4;
-  top: -10px;
 }
 .wave-container {
   position: absolute;
@@ -162,9 +127,10 @@
   bottom: 0;
   width: 200%;
   height: 100%;
+  background-color: royalblue;
 }
 .wave-path {
-  fill: rgba(34, 99, 93, 0.8);
+  fill: darkblue;
   animation: wave-move 6s linear infinite;
 }
 @keyframes wave-move {
@@ -174,22 +140,29 @@
 .dam-info {
   position: relative;
   z-index: 4;
-  text-align: right;
-  padding-right: 20px;
   display: flex;
+  flex: 1;
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
-  padding-top: 50px;
-  padding-bottom: 20px;
-  padding-left: 20px;
+  padding: 15px;
+}
+.dam-header {
+    display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
 }
 .dam-title {
-  font-size: 1.2rem;
-  color: #fff;
-  font-weight: 500;
-  text-shadow: 0 2px 8px rgba(0,0,0,0.18);
+  margin: 0;
+  font-size: 1.4rem;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 600;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
+  
+
+
 .dam-value-big {
   font-size: 3.5rem;
   font-weight: 700;
@@ -212,70 +185,60 @@
 
 /* Media queries para responsividade */
 @media (max-width: 1024px) {
-  .dam-card-full {
-    min-width: 200px;
-    min-height: 200px;
-    max-width: 100%;
-  }
-  
   .dam-value-big {
     font-size: 3rem;
   }
-  
   .dam-unit {
     font-size: 1.3rem;
   }
-
-  .dam-title {
-    font-size: 1.1rem;
-  }
+  
 }
 
 @media (max-width: 768px) {
-  .dam-card-full {
-    min-width: 180px;
-    min-height: 180px;
-  }
-  
   .dam-value-big {
     font-size: 2.5rem;
   }
-  
   .dam-unit {
     font-size: 1.2rem;
   }
-  
-  .dam-title {
-    font-size: 1rem;
-  }
 
-  .dam-info {
-    padding-right: 15px;
-    padding-left: 15px;
-  }
 }
 
 @media (max-width: 480px) {
-  .dam-card-full {
-    min-width: 150px;
-    min-height: 150px;
+  .weather-value{
+    font-size: 2rem;
   }
-  
   .dam-value-big {
     font-size: 2rem;
   }
-  
   .dam-unit {
     font-size: 1rem;
   }
-  
-  .dam-title {
-    font-size: 0.9rem;
-  }
-  
-  .dam-info {
-    padding-right: 10px;
-    padding-left: 10px;
-    padding-top: 30px;
-  }
+ 
 }
+
+.map-card {
+  min-width: 250px;
+  min-height: 200px;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  padding: 0;
+  max-width: 800px;
+}
+.map-card .leaflet-container {
+  width: 100% !important;
+  height: 100% !important;
+  border-radius: 20px;
+  min-height: 200px;
+  min-width: 250px;
+}
+

@@ -20,7 +20,7 @@ export function GraphSelect() {
   };
 
   return (
-    <div className="flex flex-wrap gap-4 mt-20 items-center justify-center ">
+    <div className="flex flex-wrap gap-4 mt-26 items-center justify-center ">
       <div className="p-4 w-full md:w-auto">
         <label className="block text-lg font-semibold text-white mb-1">Estações (Múltiplas)</label>
         <Select

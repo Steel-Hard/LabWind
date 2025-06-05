@@ -22,6 +22,17 @@
     padding: 1rem;
   }
 }
+.leaflet-control-attribution {
+  display: none !important;
+}
+.leaflet-container {
+  width: 100% !important;
+  height: 100% !important;
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: auto;
+  min-height: 0; /* importante para evitar overflow no flexbox */
+}
 
 .dashboard {
   max-width: 1200px;

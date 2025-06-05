@@ -1,4 +1,4 @@
-import { ISensorData } from "../types";
+import { ISensorData, WeatherAlertData } from "../types";
 import ApiService from "./ApiService";
 
 class LabwindDataService extends ApiService {
@@ -23,7 +23,7 @@ class LabwindDataService extends ApiService {
     }
 
     async checkAlerts() {
-        return this.get("/alerts");
+        return this.get<WeatherAlertData>("/alerts");
     }
 }
 

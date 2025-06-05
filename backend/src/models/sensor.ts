@@ -56,7 +56,7 @@ time: {
 estacao: {
   type: String,
   required: true,
-  enum: ['A', 'B']
+  enum: ['A', 'B','O']
 }
 
 });
