@@ -18,6 +18,17 @@ import OpenWeatherService from "../services/OpenWeather";
 import "leaflet/dist/leaflet.css";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import { LatLngExpression } from "leaflet";
+import L from "leaflet";
+import markerIcon2x from "leaflet/dist/images/marker-icon-2x.png";
+import markerIcon from "leaflet/dist/images/marker-icon.png";
+import markerShadow from "leaflet/dist/images/marker-shadow.png";
+
+// Corrige o ícone padrão do Leaflet para builds React/Vite
+L.Icon.Default.mergeOptions({
+  iconRetinaUrl: markerIcon2x,
+  iconUrl: markerIcon,
+  shadowUrl: markerShadow,
+});
 
 const Dashboard: React.FC = () => {
   const [sensor, setSensor] = useState<ISensorData>();
@@ -72,7 +83,7 @@ const Dashboard: React.FC = () => {
             icon={
               <FontAwesomeIcon
                 size={"5x"}
-                color="black"
+                color="white"
                 icon={faTemperatureHigh}
               />
             }
@@ -83,7 +94,7 @@ const Dashboard: React.FC = () => {
             value={sensor?.hum !== undefined ? sensor.hum : "--"}
             unit="%"
             icon={
-              <FontAwesomeIcon size={"5x"} color="black" icon={faDroplet} />
+              <FontAwesomeIcon size={"5x"} color="white" icon={faDroplet} />
             }
             type="humidity"
           />
@@ -92,7 +103,7 @@ const Dashboard: React.FC = () => {
             value={sensor?.bar !== undefined ? sensor.bar : "--"}
             unit="hPa"
             icon={
-              <FontAwesomeIcon size={"5x"} color="black" icon={faGaugeHigh} />
+              <FontAwesomeIcon size={"5x"} color="white" icon={faGaugeHigh} />
             }
             type="pressure"
           />
@@ -100,14 +111,14 @@ const Dashboard: React.FC = () => {
             title="Radiação Solar"
             value={sensor?.uv_level !== undefined ? sensor.uv_level : "--"}
             unit="W/m²"
-            icon={<FontAwesomeIcon size={"5x"} color="black" icon={faSun} />}
+            icon={<FontAwesomeIcon size={"5x"} color="white" icon={faSun} />}
             type="solarRadiation"
           />
           <WeatherCard
             title="Velocidade do Vento"
             value={sensor?.wind_rt !== undefined ? sensor.wind_rt : "--"}
             unit="m/s"
-            icon={<FontAwesomeIcon size={"5x"} color="black" icon={faWind} />}
+            icon={<FontAwesomeIcon size={"5x"} color="white" icon={faWind} />}
             type="windSpeed"
           />
           <WeatherCard
@@ -116,7 +127,7 @@ const Dashboard: React.FC = () => {
               sensor?.wind_dir_rt !== undefined ? sensor.wind_dir_rt : "--"
             }
             unit="°"
-            icon={<FontAwesomeIcon size={"5x"} color="black" icon={faWind} />}
+            icon={<FontAwesomeIcon size={"5x"} color="white" icon={faWind} />}
             type="windDirection"
           />
           <WeatherCard
@@ -126,7 +137,7 @@ const Dashboard: React.FC = () => {
                 ? previsao.weather[0].description
                 : "--"
             }
-            icon={<FontAwesomeIcon size={"5x"} color="black" icon={faWind} />}
+            icon={<FontAwesomeIcon size={"5x"} color="white" icon={faWind} />}
             type="previsao"
             espValue={previsao?.weather[0].main}
           />
@@ -136,7 +147,7 @@ const Dashboard: React.FC = () => {
               value={barragemData}
               unit="%"
               icon={
-                <FontAwesomeIcon size={"5x"} color="black" icon={faWater} />
+                <FontAwesomeIcon size={"5x"} color="white" icon={faWater} />
               }
               type="dam"
             />

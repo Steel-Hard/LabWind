@@ -2,7 +2,7 @@
 import React from 'react';
 import './WeatherCard.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowUp } from '@fortawesome/free-solid-svg-icons';
+import { faArrowUp, faSpinner } from '@fortawesome/free-solid-svg-icons';
 import { weatherIconMap } from '../../utils/weatherIconMap';
 import Wave from './Wave';
 
@@ -72,6 +72,22 @@ const WeatherCard: React.FC<WeatherCardProps> = ({
   const numericValue = typeof value === 'string' ? parseFloat(value) : value;
   const backgroundColor =
     type === 'previsao' ? '#1976d2' : getCardColor(type, numericValue);
+
+    if(value === "--"){
+      return(
+        <div className="weather-card" style={{ backgroundColor }}>
+      <div className="weather-card-header">
+        <h3>{title}</h3>
+        {icon}
+      </div>
+      <div className="weather-card-content">
+        <div className="weather-value spinner"> <FontAwesomeIcon icon={faSpinner}/> </div>
+        <span className="weather-unit">{unit}</span>
+      </div>
+    </div>
+
+      )
+    }
 
     if (type === 'dam') {
     return (
